@@ -1,0 +1,773 @@
+\documentclass[mathematics,article,accept,pdftex,moreauthors]{Definitions/mdpi} 
+
+%\documentclass[a4paper,12pt]{article}
+\usepackage{bm}
+\usepackage{hyperref}
+\usepackage{boondox-cal}
+\usepackage{hyperref,amssymb,amscd}
+\usepackage{geometry}
+\usepackage{amsthm,amsmath,amssymb}
+\usepackage{mathrsfs}
+\usepackage{graphicx}
+\usepackage{caption}
+\usepackage{multirow}
+\usepackage{booktabs}
+\usepackage{float}
+\usepackage{changepage}
+%\geometry{left=2.54cm,right=2.54cm,top=1.5cm,bottom=3.28cm}
+%\usepackage[numbers,sort]{natbib}
+\usepackage{algorithmic}
+\usepackage[linesnumbered,ruled,vlined]{algorithm2e}
+\setlength{\algoheightrule}{1pt} % thickness of the rules above and below
+\setlength{\algotitleheightrule}{0.5pt}
+
+\usepackage{color}
+\usepackage{CJK}
+%\captionsetup[table]{labelfont=bf,textfont=it}%表格标题加粗	
+%\usepackage[font=small,labelfont=bf,labelsep=none]{caption}%表格标题加粗	
+%\setlength{\bibsep}{0.2em} % 设置参考文献条目间的距离
+%\def\bibfont{\fontsize{9}{5}\selectfont} %参考文献行间距
+
+%\renewcommand{\refname}{\small{References}}%参考文献4个字重命名
+
+
+
+
+
+%\renewcommand{\baselinestretch}{1.1}
+%\renewcommand{\thesection}{\arabic{section}.}
+%\renewcommand{\thesubsection}{\arabic{section}.\arabic{subsection}.}%设置标题样式
+%\renewcommand{\thesubsubsection}{\arabic{section}.\arabic{subsection}.\arabic{subsubsection}.}
+%\captionsetup[figure]{name={Fig.},labelsep=period,singlelinecheck=off} 
+%\captionsetup[table]{name={Fig.},labelsep=period,singlelinecheck=off}
+% \selectfont
+ 
+
+
+ %=================================================================
+% MDPI internal commands - do not modify
+\firstpage{1} 
+\makeatletter 
+\setcounter{page}{\@firstpage} 
+\makeatother
+\pubvolume{1}
+\issuenum{1}
+\articlenumber{0}
+\pubyear{2023}
+\copyrightyear{2023}
+\externaleditor{{Academic Editor:} José Antonio Roldán-Nofuentes}
+\datereceived{3 January 2023} 
+\daterevised{31 January 2023} % Comment out if no revised date
+\dateaccepted{1 February 2023} 
+\datepublished{ } 
+%\datecorrected{} % For corrected papers: "Corrected: XXX" date in the original paper.
+%\dateretracted{} % For corrected papers: "Retracted: XXX" date in the original paper.
+\hreflink{https://doi.org/} % If needed use \linebreak
+%\doinum{}
+%\pdfoutput=1 % Uncommented for upload to arXiv.org
+ 
+ 
+ %=================================================================
+% Full title of the paper (Capitalized)
+\Title{\highlighting{An} Adaptive Multipath Linear Interpolation Method for Sample Optimization}
+%mdpi:
+%1. Please do not delete our comments.
+%2. Please revise and answer all questions that we proposed. Such as: “It should be italic”; “I confirm”; “I have checked and revised all.”, which will help us to check effectively if the final version has been proofed entirely. Please note that changes will not be allowed once the paper is released online.
+%3. Please notice that, in this stage, authority is not allowed to modify
+%4. The paper has been edited by our inhouse English editor, please check carefully throughout the manuscript.
+%5. The initial layout for your manuscript was done by our layout team. Please do not change the layout, otherwise we cannot proceed to the next step.
+%6. Please directly correct on this version. 
+%7. Please make sure that all the symbols in the paper are of the same format.
+
+
+
+
+
+% MDPI internal command: Title for citation in the left column
+\TitleCitation{An Adaptive Multipath Linear Interpolation Method for Sample Optimization}
+
+% Author Orchid ID: enter ID or remove command
+%\newcommand{\orcidauthorA}{0000-0000-0000-000X} % Add \orcidA{} behind the author's name
+%\newcommand{\orcidauthorB}{0000-0000-0000-000X} % Add \orcidB{} behind the author's name
+
+% Authors, for the paper (add full first names)
+\Author{\hl{Yukun Du}, %MDPI:Please carefully check the accuracy of names and affiliations.
+Xiao Jin, Hongxia Wang * and Min Lu}
+
+%\longauthorlist{yes}
+
+% MDPI internal command: Authors, for metadata in PDF
+\AuthorNames{Yukun Du, Xiao Jin, Hongxia Wang and Min Lu}
+
+% MDPI internal command: Authors, for citation in the left column
+\AuthorCitation{\hl{Du, Y.}; Jin, X.; Wang, H.; Lu, M.}%MDPI:Please carefully check the accuracy of names.
+% If this is a Chicago style journal: Lastname, Firstname, Firstname Lastname, and Firstname Lastname.
+
+% Affiliations / Addresses (Add [1] after \address if there is only one affiliation.)
+\address[1]{School of Statistics and Data Science, Nanjing Audit University, Nanjing 211815, China; {mg2108129@stu.nau.edu.cn (Y.D.); mg2108123@stu.nau.edu.cn (X.J.); lumin@nau.edu.cn (M.L.)} 
+}
+
+% Contact information of the corresponding author
+\corres{\hangafter=1 \hangindent=1.05em \hspace{-0.82em}Correspondence:   hxwang@nau.edu.cn}
+
+% Current address and/or shared authorship
+%\firstnote{Current address: Affiliation 3.} 
+%\secondnote{These authors contributed equally to this work.}
+% The commands \thirdnote{} till \eighthnote{} are available for further notes
+
+%\simplesumm{} % Simple summary
+
+%\conference{} % An extended version of a conference paper
+
+% Abstract (Do not insert blank lines, i.e. \\) 
+\abstract{When using machine learning methods to make predictions, the problem of small sample sizes or highly noisy observation samples is common. Current mainstream sample expansion methods cannot handle the data noise problem well. We propose a multipath sample expansion method (\highlighting{AMLI}) %mdpi: please check if it should be italic to keep consistent throughout the paper? please check all non-italic AMLI
+based on the idea of linear interpolation, which mainly solves the problem of insufficient prediction sample size or large error between the observed sample and the actual distribution. The rationale of the AMLI method is to divide the original feature space into several subspaces with equal samples, randomly extract a sample from each subspace as a class, and then perform linear interpolation on the samples in the same class (i.e., $K$-path linear interpolation). After the AMLI processing, valid samples are greatly expanded, the sample structure is adjusted, and the average noise of the samples is  reduced so that the prediction effect of the machine learning model is improved. The hyperparameters of this method have an intuitive explanation and usually require little calibration. We compared the proposed method with a variety of machine learning prediction methods and demonstrated that the AMLI method can significantly improve the prediction result. We also propose an AMLI plus method based on the linear interpolation between classes by combining the idea of AMLI with the clustering method and present theoretical proofs of the effectiveness of the AMLI and AMLI plus~methods.}
+
+% Keywords
+\keyword{multipath; linear interpolation; sample optimization; predicted effects} 
+ 
+ 
+ % The fields PACS, MSC, and JEL may be left empty or commented out if not applicable
+%\PACS{J0101}
+\MSC{6211; 68T09}
+%\JEL{}
+ 
+%\title{\textbf{
+%		%Editor: We have provided a PDF that shows the tracked changes in your file as in a Word document. This method makes it easier for you to match the edited file with your original file and make any necessary edits to your file in your LaTeX program. Please let us know if you require further assistance.
+%		
+%}}
+%\date{}
+%\author{\hspace{-13em}\small{}, \small{}, \small{}, and \small{}}
+%
+%\maketitle
+%\small{$*$ }
+%
+%\small{$\dag$ }
+%
+%
+%
+%
+%\begin{adjustwidth}{1cm}{1cm}
+%	\hspace{1.5em}
+%\hspace{-2.3em} $\textbf{Abstract}$ $:$
+%\end{adjustwidth}
+%\vspace*{15pt}
+%\hspace{2em}
+%\textbf{Keywords:}  
+%
+%\hspace{0.8em}\textbf{MSC:} 
+%
+%	\rule{14cm}{0.1em}
+
+\begin{document}
+
+\section{ Introduction}
+
+When using machine learning models to make predictions, a series of problems, such as insufficient sample sizes, missing parts of data, or large observation errors, are common. Especially for small sample datasets, how to improve model performance by using effective sample optimization techniques is crucial.
+ 
+Improving model performance by increasing the number of numerical data can be traced back to the interpolation method at the earliest. Boor and Carl \cite{ref1} proposed the cubic spline interpolation method, and Mitas and Mitasova \cite{ref2} proposed the spatial interpolation method. Lu and Wong \cite{ref3} proposed an adaptive inverse distance spatial interpolation algorithm, which uses the inverse proportional relationship between the distance between neighbors and the interpolation weight. Efron \cite{ref4} proposed using the bootstrap resampling method based on jackknife; Chawla et al. \cite{ref5} proposed the synthetic minority oversampling technique (SMOTE); Pan and Yang \cite{ref6} proposed a transfer learning method to simultaneously model different types of label samples to increase sample size for model training. Fernandez et al. \cite{ref7} proposed the SMOTE smoothing method, which constructs a new sample by randomly selecting a sample and randomly selecting multiple samples from its $K$-nearest neighbor.
+
+With the advent of the era of big data, there are also some studies on sample optimization in machine learning and deep learning.  Zhu (2005) \cite{ref8} proposed active learning and semi-supervised learning using the existing samples in the original sample space and using certain algorithms to label the unlabeled samples with high quality to achieve the effect of sample optimization. Eisenberger et al. \cite{ref9} proposed an unsupervised shape interpolation method based on a neural network.
+
+Recent technology research found that Few-Shot Learning has become a promising future development direction. Wang et al. \cite{ref10} pointed out that the most important point in Few-Shot Learning was the use of prior knowledge. Prior knowledge of Few-Shot Learning comes from three sources: data, models, and algorithms. Current machine learning methods are in stark contrast to human perception, and their sample learning efficiency is very low. Few-Shot Learning is an exciting area of machine learning; it can solve the problem of low sample learning efficiency. Based on matching neural networks (matching learning), Vinyals \mbox{et al}.~\cite{ref11} proposed an LSTM to calculate the supported FCE, and they also optimized the sample by adding another LSTM to modify the embedding of the query samples. Snell \mbox{et al. \cite{ref12}} proposed a striking inductive bias in the form of a class of prototypes in prototypical networks, and its achieved Few-Shot Learning performance can exceed matched networks without FCE complexity. \hl{Kokol et al. (2022)} %MDPI: please carefully check the citation label. It looks as if it is confusing, please check refs13-16.
+ \cite{ref13} proposed the synthetic data learning method and demonstrated that small samples can be better than large samples of low quality in the context of statistical machine learning. \hl{Zhou et al. (2022)}~\cite{ref14} proposed a new improved multiscale edge-labeling graph neural network (MEGNN) to address the small sample size problem by acquiring as much feature information as possible.
+
+When the sample size is expanded, the distribution of the added samples often deviates greatly from that of the actual samples (unknown). Moreover, the data observed daily often contain noise, and the expansion of samples with noise often aggravates the influence of the noise on the prediction result. The adaptive multipath linear interpolation AMLI method proposed in this paper can effectively solve these problems and ensure that most of the added samples are valid ones (i.e., their distribution generally deviates only slightly from the actual distribution). The AMLI method is mainly based on the linear interpolation method to expand the samples of the original data. The idea is to divide the original feature space into several subspaces with an equal number of samples, extract one sample from each subspace as a class, and then perform linear interpolation for the samples in the same class, which is \emph{K}-path linear interpolation. This method requires two hyperparameters ($K$ and  $\eta$) in advance. The visual interpretation of parameter $K$ is the number of samples existing in each feature subspace, while  $\eta$ is the number of samples interpolated per unit distance in the linear interpolation of the samples. In the simulation and empirical research, we found that the selection of parameter $K$ is critical, which varies with different samples. By selecting appropriate hyperparameters, many valid samples can be expanded, and the proportion of samples in which the observed value deviates greatly from the actual value is reduced so that the composition structure of samples with error is adjusted and sample optimization is  achieved; consequently, the impact of observation noise on the prediction result is also greatly reduced.
+
+
+
+
+\section{ Research Hypothesis and Methodology Statement}
+
+This section describes the steps of the AMLI method and some assumptions that should be satisfied when using the AMLI method.
+
+For a given training dataset:
+$$T=\{(\bm{x}_{1}, y_{1}), (\bm{x}_{2}, y_{2}), \ldots, (\bm{x}_{N}, y_{N})\},$$
+where \hl{$\bm{x}_{i} = (x_{i}^{(1)}, \ldots, x_{i}^{(n)}) \in \mathcal{X} \subseteq R^{n} $} %MDPI: please check if all bold in equations need retained.
+ is the feature vector of the example, and $n$ is the feature dimension. $y_{i} \in R$ is the corresponding output; $i=1,2, \dots, N$, where $N$ represents the sample size. Assuming 
+$$y_{i} = f(\bm{x}_{i} - \epsilon_{i}) + \tilde{\epsilon}, i=1, 2, \ldots, N,$$
+where $f(\cdot)$ is a continuous function;  $\epsilon_{i}$ is the set of independent and identically distributed observation noise; and $\tilde{\epsilon}$ is the model error. The specific steps of the AMLI method are as~follows. 
+
+First, the hyperparameter $K$ is determined, and the feature space $\mathcal{X}$ is divided into $N/K$ feature subspaces, each subspace containing $K$ observation samples. Second, a sample is randomly selected from each subspace to form a set $S_{d},$ $d=1,2,\ldots, K,$ and then, we have:
+$$T=\{S_{1}, S_{2}, \ldots, S_{K}\},$$
+where each $S_{d}$ contains $N/K$ samples.
+
+$\exists$ $\bm{x}_{0} \in$ $\mathcal{X}$, for $\forall i,$ we have $\bm{x}_{0}^{(i)} =  \mathop{inf}\limits_{\bm{x} \in \mathcal{X} }\{x^{(i)}\}$  and call $\bm{x}_{0}$ the feature space minimum point. Let $L({\cdot})$ be the distance measurement function of the feature space $\mathcal{X}$ ($S_{d} = \{\bm{x}^{(d,1)}, \ldots, \bm{x}^{(d,N/K)}\}$, $\bm{x}^{(d,1)} = \mathop{argmin}\limits_{\bm{x} \in s_{d} }L(\bm{x}, \bm{x}_{0}) $); we call the point in each sample class nearest to $\bm{x}_{0}$ the minimum point of the sample class ($d = 1,\ldots, K.$); and $\bm{x}^{(d,h+1)} = \mathop{argmin}\limits_{\{\bm{x}:\bm{x}\in S_{d}, \bm{x}\neq\bm{x}^{(d,1)}, \ldots, \bm{x}^{(d,h)}\}}L(\bm{x}, \bm{x}^{(d,h)})$, in which  $S_{d}$ is the observation point having the second nearest distance to $\bm{x}^{(d,h)}$   (after $\bm{x}^{(d,1)}, \ldots, \bm{x}^{(d,h)}$ ) ($h=1, 2, \ldots, N/K-1 $).
+
+
+After determining the minimum point $\bm{x}^{(d,1)}$ of the sample class, all the samples in the set are searched to find the $\bm{x}^{(d,1)}$ point in the feature space nearest to $\bm{x}^{(d,2)}$, and $\bm{x}^{(d,3)}, \ldots, \bm{x}^{(d,N/K)}. $ We define the unit distance filling parameter $\eta$ and use linear interpolation in the feature space to interpolate $\sum_{i=1}^{N/K-1} \lfloor  \eta \cdot L(\bm{x}^{(d,i)}, \bm{x}^{(d,i+1)}) \rfloor$(for the sake of convenience, the number of interpolated samples in this paper is rounded down and will not be specifically mentioned below) virtual samples, and the interpolated samples are equally spaced. $\bm{x}_{d}^{(h, h+1, i)}$ represents the $i^{th}$ dummy sample interpolated between $\bm{x}^{(d,h)}$ and $\bm{x}^{(d,h+1)}$($i=1,\ldots, \eta \cdot L(\bm{x}^{(d,h)}, \bm{x}^{(d,h+1)})$) in $S_{d}$, and for $\bm{x}_{d}^{(h,h+1,i)}$ and its corresponding output $y_{d}^{(h,h+1,i)}$  , it satisfies:
+
+
+$$\bm{x}_{d}^{(h,h+1,i)} = \bm{x}^{(d,h)} + i\cdot \frac{\bm{x}^{(d,h+1)} - \bm{x}^{(d,h)}}{\eta \cdot L(\bm{x}^{(d,h)}, \bm{x}^{(d,h+1)})+1},$$
+$${y}_{d}^{(h,h+1,i)} = y^{(d,h)} + i\cdot \frac{y^{(d,h+1)} - y^{(d,h)}}{\eta \cdot L(\bm{x}^{(d,h)}, \bm{x}^{(d,h+1)})+1}.$$
+
+The above linear interpolation is performed on all sample classes, the number of interpolations is $\sum_{d=1}^{K}\sum_{i=1}^{N/K-1} \eta \cdot L(\bm{x}^{(d,i)}, \bm{x}^{(d,i+1)})$, and all dummy samples are added to the dataset.
+
+The AMLI method divides the original feature space into $N/K$ subspaces with equal samples and then randomly selects a sample in each subspace as a sample class. When performing sample classification operations in practical applications, we can calculate the distances of all observation samples in the dataset to the minimum point of the feature space and classify each sample into its respective sample class in ascending order. The specific implementation process of the AMLI method is detailed in Algorithm~\ref{alg:algorithm1}
+\\\\
+\vspace{-6pt}
+
+
+\begin{algorithm}[H]
+	\SetAlgoLined %显示end
+	\label{alg:algorithm1}
+	\caption{\hl{\emph{AMLI}}}%算法名字  %MDPI: %MDPI: Please cite the algorithm 1 in the text and ensure the first citation of each figure appears in numerical order.
+
+
+	\KwIn{\emph{Hyperparameters} $K,$ $\eta$	
+		\\ \hspace{3em} $Distance$ $measurement$ $method$ $L(\cdot).$ $e.g.,$ $Euclidean$ $distance$ $minimum$ $point$ \\
+		\hspace{3em} $in$ $\bm{x}_{0}.$ $feature$ $space$ $set$ $\bm{S}_{1},$ $\bm{S}_{2},$ $\ldots,$ $\bm{S}_{k}$ }
+		% 集合
+	\KwOut{$T$ $(Resulting$ $dataset)$}%输出
+	\For{$d = 1, \ldots, K $}
+	{$\bm{x}^{(d,1)}$ = $\mathop{argmin}\limits_{\bm{x}\in S_{d}}$ $L(\bm{x},\bm{x}_{0})$ \\
+	\For{$h=1, \ldots, N/ K-1 $}
+	{$\bm{x}^{(d,h+1)}$ = $\mathop{argmin}\limits_{\{\bm{x}:\bm{x}\in S_{d}, \bm{x}\neq\bm{x}^{(d,1)}, \ldots, \bm{x}^{(d,h)}\}}$ $L(\bm{x},\bm{x}^{(d,h)})$ \\
+	\For{$i=1, 2, \ldots, \eta \cdot$ $L(\bm{x}^{(d,h)},\bm{x}^{(d,h+1)})$}
+	{$\bm{x}^{(h,h+1,i)}_{d} = \bm{x}^{(d,h)} + i \cdot \displaystyle{\frac{\bm{x}^{(d,h+1)}-\bm{x}^{(d,h)}}{\eta \cdot L(\bm{x}^{(d,h)}, \bm{x^{(d,h+1)}}) + 1}},$  ${y}^{(h,h+1,i)}_{d} = {y}^{(d,h)} + i \cdot \displaystyle{\frac{{y}^{(d,h+1)}-{y}^{(d,h)}}{\eta \cdot L(\bm{x}^{(d,h)}, \bm{x^{(d,h+1)}}) + 1}}.$ \\ \hspace{0.2em} $Add$ $(\bm{x}_{d}^{(h, h+1, i)}, y_{d}^{(h, h+1, i)})$ $to$ $dataset$ $T$
+	}}}	
+\end{algorithm}
+
+
+
+\section{Simulation Experiments}
+
+\subsection{Monte Carlo Simuations}
+
+ In this section, we will demonstrate the optimization effect of the samples added by using the AMLI method on the overall samples by using six groups of Monte Carlo simulations. For the sake of simplicity and to achieve a better visualization effect, the feature dimension $n$ = 1 is defined, and the real function relationship selected is $y=x^{3}$. Since there is a certain error between the observed value of the sample and the actual value, to simulate this effect, we add noise to the samples after data generation.
+
+The distribution of data and the settings of noise and sample size are as follows:
+
+Simulation 1: $N=200,$ $x \sim U(-2.5, 2.5), $ $\epsilon$ $\sim N(0, 1); $
+
+Simulation 2: $N=500,$ $x \sim U(-2.5, 2.5), $ $\epsilon$ $\sim N(0, 1); $
+
+Simulation 3: $N=800,$ $x \sim U(-2.5, 2.5), $ $\epsilon$ $\sim N(0, 1); $
+
+Simulation 4: $N=200,$ $x \sim N(0, 2.5), $ $\epsilon$ $\sim N(0, 1); $
+
+Simulation 5: $N=200,$ $x \sim t(5),$ $\epsilon$ $\sim N(0, 1); $
+
+Simulation 6: $N=200,$ $x \sim U(-2.5, 2.5),$ $\epsilon$ $\sim U(-1.732, 1.732). $
+
+Simulation 1 is used as the control group, and simulations 2 and 3 are used as experimental groups with different sample sizes; simulations 4 and 5 are experimental groups with different feature distributions; simulation 6 is an experimental group with different types of noise (noise distribution parameters are selected to unify the noise variance and to ensure that the expectation is 0). Some verification indicators (e.g., the proportion of samples with an error greater than 0.5, 1, 1.5, 2, or 2.5; and the mean square error ($MSE$) between the sample observation values and the actual value) are selected to test the optimization effect of the AMLI method on the original sample after processing.
+
+$$p_{(\alpha)} = \frac{\sum_{i=1}^{N+\sum_{d=1}^{K}\sum_{i=1}^{N/K-1} \eta \cdot L(\bm{x}^{(d,i)}, \bm{x}^{(d,i+1)})}I(|\bm{x}_{i} - \bm{x}_{i}^{*}| > \alpha)}
+	{N+\sum_{d=1}^{K}\sum_{i=1}^{N/K-1} \eta \cdot L(\bm{x}^{(d,i)}, \bm{x}^{(d,i+1)})} ,$$
+$$MSE(\bm{x}, \bm{x}^{*}) = \frac{\sum_{i=1}^{N}(\bm{x}_{i} - \bm{x}_{i}^{*})^{2}}{N} ,$$
+where $\bm{x}$ is the observed value of the sample; $\bm{x}^{*}$ is the actual value of the sample; $N+\sum_{d=1}^{K}\sum_{i=1}^{N/K-1} \eta \cdot L(\bm{x}^{(d,i)}, \bm{x}^{(d,i+1)})$ is the number of total samples after AMLI optimization; and $\alpha$ = 0.5, 1, 1.5, 2, 2.5. Due to the randomness of each experiment, we selected different hyperparameters to perform multiple calibrations in each simulation and calculated the average value of each of the verification indicators for every 100 experiments.
+
+To  reflect the optimization effect of the AMLI method more visually, below, we describe the AMLI processing process of simulation 1 in detail. First, 200 samples are generated evenly in the interval of ($-$2.5, 2.5) (Figure \ref{fig:1-}(1)). Second, noise that obeys the standard normal distribution is added to the feature variables (Figure \ref{fig:1-}(2)). Third, to achieve a better visualization effect, original samples are divided into only four categories (just to achieve a better visualization effect, and the verification index is not necessarily optimal) (i.e., the hyperparameter $K$ = 4) with labels of different colors (Figure \ref{fig:1-}(3)). Fourth, given the small interval of the definition domain, high values of the unit distance filling parameter are selected, and sample filling is performed after setting the hyperparameter $\eta$ = 100. After the filling, the sample size reaches 3035 (Figure \ref{fig:1-}(4)).
+ \vspace{-6pt}
+\begin{figure}[H]
+	%\centering
+\begin{adjustwidth}{-\extralength}{0cm}\centering
+	\includegraphics[width=1\linewidth]{"Figures/第二篇论文图/图1 AMLI方法处理过程"}
+	\end{adjustwidth}
+	%\renewcommand{\figurename}{\textbf{Figure}}%修改表格名字
+	\caption{\hl{Steps} %MDPI: 1. please remove `Figure 1' from figure body, just keep number 1,2,3,4 or change them to a,b,c,d     2.  %MDPI: Please change the hyphen (-) into a minus sign ($-$, "U+2212"). e.g., "-1" should be "$-$1".    3 please check if need to add explanations for different color dots and lines
+	of AMLI processing.\label{fig:1-}}
+\end{figure}
+
+The comparison of the visualization effects in Figure  \ref{fig:1-}(2) and Figure  \ref{fig:1-}(4) indicates that after processing with the AMLI method, the samples can adaptively fit the functional relationship between $x$ and $y$.
+
+By using the above method, the parameters of the six simulations are calibrated, and the verification indicators are calculated, as shown in Table \ref{tab1}.
+
+\begin{table}[H]
+
+%\renewcommand{\tablename}{Table}
+
+\caption{Monte Carlo simulation results.}
+\label{tab1}
+\begin{adjustwidth}{-\extralength}{0cm}%\centering
+
+
+\centering
+{\renewcommand{\tabcolsep}{2.5mm}
+			\small\begin{tabular}{cccccccccccccc}
+				\toprule
+				 \textbf{Simulation} & &\multicolumn{2}{c}{\emph{\textbf{MSE}}}& \multicolumn{2}{c}{\boldmath{$p_{(0.5)}$}} &   \multicolumn{2}{c}{\boldmath{$p_{(1)}$}} & \multicolumn{2}{c}{\boldmath{$p_{(1.5)}$}} & \multicolumn{2}{c}{\boldmath{$p_{(2)}$}} & \multicolumn{2}{c}{\boldmath{$p_{(2.5)}$}}   \\
+	\midrule
+				& & Before & After & Before & After & Before & After & Before &  After & Before & After &Before& After \\
+				1  & & 0.957 & 0.762 & 0.604 & 0.570 & 0.316 & 0.251 &0.130 & 0.083 &0.036 & 0.022 & 0.010 & 0.006 \\
+				2  & & 0.980 & 0.774 & 0.614 & 0.567 & 0.313 & 0.258 &0.132 & 0.089 &0.043 & 0.023 & 0.011 & 0.005 
+				\\
+				3 & & 0.977 & 0.789 & 0.619 & 0.571 & 0.308 & 0.254 &0.131 & 0.090 &0.043 & 0.025 & 0.011 & 0.005 \\
+				4 & & 0.990 & 0.701 & 0.609 & 0.549 & 0.317 & 0.232 &0.133 & 0.073 &0.044 & 0.017 & 0.011 & 0.003 \\
+				5 & & 0.982 & 0.756 & 0.611 & 0.552 & 0.306 & 0.245 &0.127 & 0.085 &0.038 & 0.024 & 0.010 & 0.005 \\
+				6 & & 0.987 & 0.742 & 0.706 & 0.632 & 0.411 & 0.297 &0.126 & 0.057 &0.000 & 0.000 & 0.000 & 0.000 \\
+				\bottomrule
+		\end{tabular}}
+		\end{adjustwidth}
+	\end{table}
+\vspace{-12pt}
+
+
+	\begin{Remark}
+{The} 
+optimal effect of each simulation is determined by the lowest $MSE$ after AMLI processing by traversing all the hyperparameter values according to the grid search method.
+	\end{Remark}
+
+Clearly, after the AMLI processing, the $MSE$ of the samples and the proportion of various error samples have been optimized, most of the added dummy samples are valid ones, the increase in the sample size does not significantly weaken the \emph{AMLI}'s optimization effect, the samples that obey the normal distribution have better optimization performance, and even the uniformly distributed noise shows good robustness. In many cases, the AMLI method performs well in data optimization.
+
+\subsection{Analysis of Hyperparameter Taking Values}
+
+ In this section, we discuss the patterns of setting the parameters of $K$ and $\eta$ in the AMLI method. First, we examine the setting of parameter $K$. For the above simulation, we set the parameter $\eta$ = 100; perform traversal iterations consecutively by setting $K = 1, 2\ldots, 200$; and obtain the average value of the index for one hundred iterations at each setting. The change trend of the MSE index before and after the AMLI processing is shown in Figure \ref{fig:2-}.
+\vspace{-6pt}
+
+\begin{figure}[H]
+
+\begin{adjustwidth}{-\extralength}{0cm}\centering
+
+
+	\includegraphics[width=1\linewidth]{"Figures/第二篇论文图/图2 参数K不同取值下MSE变化趋势"}
+	\end{adjustwidth}
+	%\renewcommand{\figurename}{Figure}
+	\caption{Changes in the $MSE$ under different $K$ values.}
+	\label{fig:2-}
+\end{figure}
+
+At fixed parameter $\eta$ values, the optimal value of $K$ increases with the increase in the sample size; the value range of $K$ varies under different distributions of variables; and the change in the noise distribution has little impact on the optimal value of $K$. 
+
+Next, we examine the pattern of the setting of parameter $\eta$. In the case of simulation 1, under the condition of $K = 21$ to take the optimal value, traversal iterations are performed consecutively by setting the parameter $\eta = 1, 2,\ldots, 200$; the results are shown in Figure \ref{fig:3-}. Clearly, the fluctuation of the sample $MSE$ after optimization by using the AMLI method decreases with the increase in the value of filling parameter $\eta$.
+
+
+\begin{figure}[H]
+	%\centering
+	\includegraphics[width=1\linewidth]{"Figures/第二篇论文图/图3 参数不同取值下MSE变化趋势"}
+	\renewcommand{\figurename}{Figure}
+	\caption{Changes in the $MSE$ under different $\eta$ values.}
+	\label{fig:3-}
+\end{figure}
+
+\subsection{Comparison with Other Interpolation Methods}
+The above experiments show that the AMLI method can greatly expand valid samples and reduce the uniform error of samples as a whole so that the proportion of samples with large errors is low. The AMLI method achieves sample optimization based mainly on the idea of interpolation. The main interpolation methods include linear interpolation, quadratic spline interpolation and cubic spline interpolation. In this section, we will compare the AMLI method with other interpolation methods to demonstrate its superiority.
+
+Similarly, simulation 1 is used as the control group, and simulations 2--6 are used as the experimental group, using various interpolation methods with a fixed interpolation number of 3500--4000. Only the MSE between the processed samples and the actual values is selected as the evaluation index, and for each simulation, one hundred experiments are carried out, and their average value is taken. The results are shown in Table \ref{tab2}. In terms of the $MSE$, the $AMLI$ method clearly outperforms the other methods, indicating that the $AMLI$ method has achieved a very significant optimization effect.
+
+\begin{table}[H]
+	%\centering
+	\renewcommand{\tablename}{Table}
+	\caption{$MSE$ values of samples under different interpolation methods.}
+	\label{tab2}
+	{\renewcommand{\tabcolsep}{3.7mm}
+		\small\begin{tabular}{cccccc}
+			\toprule
+		{\emph{\textbf{Simulation}} } 
+  & \multicolumn{5}{c}{{\emph{\textbf{MSE}}}}    \\
+			\midrule
+			 & & {\emph{\textbf{AMLI}}} & {\emph{\textbf{Linear Interpolation}}} & {\emph{\textbf{Quadratic Spline}}}  & {\emph{\textbf{Cubic Spline}}}   \\\midrule
+			1 & & 0.762 & 1.385 & 5.542 & 9.452  \\
+			2 & & 0.774 & 1.618 & 6.434 & 8.976  \\
+			3 & & 0.789 & 1.812 & 6.441 & 8.338  \\
+			4 & & 0.701 & 1.578 & 18.156 & 42.997 \\
+			5 & & 0.756 & 1.203 & 10.322 & 29.542 \\
+			6 & & 0.742 & 0.959 & 4.802 & 6.619 \\
+			\bottomrule
+	\end{tabular}}
+\end{table}
+\section{ Application of  \emph{AMLI} Method in Machine Learning}
+ In this section, we will describe the performance of the AMLI method in both simulated and actual data prediction when the method is combined with various machine learning models. Using the side-by-side method, we divide the training set and the test set in the ratio of 7:3; the training set is optimized by using the AMLI method. For the machine learning method, we select the $K$-Nearest Neighbor ($KNN$) method, Feedforward Neural Network ($FNN$), Gradient Boosting Decision Tree ($GBDT$) and Random Forest ($RF$), with the $MSE$ as the loss function. The hyperparameters of each model and the parameters of $K$ and $\eta$ of the AMLI method are calibrated multiple times to obtain the optimal values. The Euclidean distance is adopted as the distance function:
+
+$$ MSE = \frac{1}{N}\sum_{i=1}^{N}(y_{i}-\hat{y}_{i})^{2},$$
+$$L(x_{i}, x_{j}) =\sqrt{\sum_{l=1}^{n}(x_{i}^{l} - x_{j}^{l})^{2}}.$$
+
+\subsection{Simulated Data Prediction}
+
+We assume that for simulated samples with a size of 1000, the simulated data feature dimension $n=3$, different feature dimensions obey different distributions, $\bm{x}^{1} \sim N(0,3),$ $\bm{x}^{2} \sim U(-3,3), \bm{x}^{3} \sim t(5),$  and the weight vector of $\bm{w}^{1}_{(3,2)}, \bm{w}^{2}_{(2,1)}$  is randomly generated. Let $\bm{Y}=\bm{X} \cdot \bm{w}_{(3,2)}^{1}\cdot\bm{w}^{2}_{(2,1)}+ \tilde{\epsilon}$. After the data are generated, noise that obeys the Gaussian distribution is added to $\bm{X}$, which is then further divided into the test set and the training set. The training set is processed using the $AMLI$ method ($K$ = 40, $\eta$ = 5), and the total number of samples after the processing is 9810.
+
+As shown in Table \ref{tab3}, the $MSE$ of the trained model using the data processed by the $AMLI$ method is smaller in the prediction, indicating that the prediction result is more~accurate.
+
+\begin{table}[H]
+	
+	\renewcommand{\tablename}{Table}
+	\caption{Simulation data prediction results.}
+	\label{tab3}
+	{\renewcommand{\tabcolsep}{6.06mm}
+		\small\begin{tabular}{cccccc}
+			\toprule
+			{\emph{\textbf{MSE}}}  & & {\emph{\textbf{KNN}}} & {\emph{\textbf{FNN}}} & {\emph{\textbf{GBDT}}} &{ \emph{\textbf{RF}}}    \\
+			\midrule
+			Before AMLI processing & & 1.70 & 0.942 & 1.210 & 1.507  \\
+			After AMLI processing& & 1.07 & 0.713 & 1.008 & 1.320  \\
+			\bottomrule
+	\end{tabular}}
+\end{table}
+
+
+\subsection{Actual Data Prediction}
+\subsubsection{ Demand Forecast for Shared Bike Rental}
+
+
+In this section, we present a case study by predicting the demand for shared bicycle rentals in a certain city. The dataset includes multiple variables, such as season, holiday, temp, and registered (Table \ref{tab4}). We use the AMLI method to optimize samples of actual data. On the one hand, we combine the AMLI method with machine learning methods to examine its optimization performance in actual predictions; on the other hand, given that the dataset contains multiple categorical data, we can explore whether the AMLI method can achieve good optimization in prediction when the assumptions of the AMLI method are violated.
+
+
+\begin{table}[H]
+	%\centering
+	%\renewcommand{\tablename}{Table}
+	\caption{Description of variable indicators.}
+	\label{tab4}
+	{\renewcommand{\tabcolsep}{10.45mm}
+		\small\begin{tabular}{ccc}
+			\toprule
+		 \textbf{Variable Name} & & \textbf{Variable Definition} \\
+		\midrule
+		 \multirow{4}{1.5cm}{Season} & & 1 = Spring \\
+		 & &2 = Summer
+		 \\
+		 & & 3 = Autumn\\
+		 & & 4 = Winter\\
+		 \multirow{2}{1.5cm}{Holiday} & & 1 = Holiday\\
+		 & & 0 = Non-holiday \\
+		 \multirow{2}{1.8cm}{Workdays} & & 1 = Working day \\
+		 & & 0 = Weekend \\
+		 \multirow{4}{1.5cm}{Weather} & & 1 = Sunny, cloudy \\
+		 & & 2 = Foggy, overcast \\
+		 & & 3 = Light snow, drizzle \\
+		 & & 4 = Heavy rain, heavy snow, heavy fog \\
+		 Temp & & Temperature in Celsius \\
+		 Atemp & & Apparent temperature \\
+		 Humidity & & Humidity \\
+		 Windspeed & & Wind speed \\
+		 Casual & & Number of nonregistered users \\
+		 Registered & & Number of registered users \\
+		 Count & & Total number of car rentals \\
+		\bottomrule
+	\end{tabular}}
+\end{table}
+
+The dataset contains 7620 observation samples. We select 1000, 3000, and 7620 samples consecutively to examine the prediction optimization of the AMLI method in combination with machine learning methods when the sample size is insufficient, fair, or sufficient.
+
+As shown in Table \ref{tab5}, at various sample size levels, the AMLI method has achieved a certain optimization of prediction effect.
+
+\begin{table}[H]
+
+	%\renewcommand{\tablename}{Table}
+	\caption{Prediction results of shared bicycle rental demand (MSE).}
+	\label{tab5}
+	\begin{adjustwidth}{-\extralength}{0cm}\centering
+
+
+	
+	
+	{\renewcommand{\tabcolsep}{3.05mm}
+		\small\begin{tabular}{ccccccccc}
+			\toprule
+			\emph{\textbf{N}}  & & \textbf{Hyper-Parameter} &  \emph{\textbf{N}} \textbf{(After Processing)} & \textbf{\emph{AMLI} Processing} & \emph{\textbf{KNN}} & \emph{\textbf{FNN}} & \emph{\textbf{GBDT}} & \emph{\textbf{RF}}    \\\midrule
+			\multirow{2}{1cm}{1000} & & \multirow{2}{1.3cm}{$K=25$ $\eta=5$} & \multirow{2}{1cm}{191,057} & Before & 208.230 & 0.9677 & 88.152 & 231.210\\
+			& & & &  After & 46.340 & 0.0791 & 68.394 & 158.940 \\
+			\multirow{2}{1cm}{3000} & & \multirow{2}{1.3cm}{$K=40$ $\eta=3$} & \multirow{2}{1cm}{290,856} & Before & 42.757 & 0.3342 & 22.794 & 43.679\\
+			& & & &  After & 26.020 & 0.0084 & 14.301 & 25.451 \\
+			\multirow{2}{1cm}{7620} & & \multirow{2}{1.3cm}{$K=65$ $\eta=1$} & \multirow{2}{1cm}{428,277} & Before & 17.464 & 0.1168 & 9.879 & 23.521\\
+			& & & &  After & 6.798 & 0.0051 & 6.981 & 2.472 \\
+			\bottomrule
+	\end{tabular}}
+	\end{adjustwidth}
+\end{table}
+
+
+\subsubsection{Concentration Forecast for $PM_{2.5}$}
+
+In this section, we present a case study by predicting the concentration for $PM_{2.5}$ in a certain city to rule out the randomness of the dataset. The dataset includes multiple concentrations of air pollutants such as $PM_{10}$, CO, $SO_{2}$, $NO_{2}$ and $O_{3}$. The dataset contains 3193 observation samples. We select 500, 1500, and 3193 samples consecutively to examine the prediction optimization of the $AMLI$ method. As shown in Table \ref{tab6}, the $AMLI$ method still has a good optimization effect.
+
+\begin{table}[H]
+%	\centering
+%	\renewcommand{\tablename}{Table}
+	\caption{Prediction results of shared bicycle rental demand ($MSE(10^{-3}))$.}
+	\label{tab6}
+	
+	\begin{adjustwidth}{-\extralength}{0cm}\centering
+
+
+	
+	{\renewcommand{\tabcolsep}{3.45mm}
+		\small\begin{tabular}{ccccccccc}
+			\toprule
+			\boldmath{$N$}  & & \textbf{Hyperparameter} &  \textbf{\boldmath{$N$} (After Processing)} & \textbf{\boldmath{AMLI} Processing} & \boldmath{$KNN$} & \boldmath{$FNN$} & \boldmath{$GBDT$} & \boldmath{$RF$}    \\\midrule
+			\multirow{2}{1cm}{500} & & \multirow{2}{1.3cm}{$K=17$ $\eta=10$} & \multirow{2}{1cm}{1089} & Before & 3.16 & 4.45 & 3.14 & 3.39\\
+			& & & &  After & 2.89 & 2.55 & 2.36 & 3.01 \\
+			\multirow{2}{1cm}{1500} & & \multirow{2}{1.3cm}{$K=23$ $\eta=30$} & \multirow{2}{1cm}{7003} & Before & 2.69 & 2.54 & 2.33 & 2.62\\
+			& & & &  After & 2.18 & 2.07 & 1.86 & 2.33 \\
+			\multirow{2}{1cm}{3193} & & \multirow{2}{1.3cm}{$K=50$ $\eta=60$} & \multirow{2}{1cm}{24,559} & Before & 1.77 & 1.63 & 1.48 & 1.54\\
+			& & & &  After & 1.41 & 1.13 & 1.07 & 1.16 \\
+			\bottomrule
+	\end{tabular}}
+	\end{adjustwidth}
+\end{table}
+
+\section{ Proof}
+
+ In this section, we will present the proof for the samples that satisfy the AMLI hypothesis that after processing with the AMLI method, the average observation error of the samples is reduced, and the proportion of samples with different errors is adjusted.
+
+The rationale of AMLI is to divide the original feature space into $N/K$ subspaces with $K$ samples, randomly extract a sample from each subspace as a class to divide the original dataset into $K$ classes, and then perform linear interpolation between two adjacent samples. In essence, AMLI can be viewed as a method of linear interpolation between two subspaces with close distances through $K$ paths.
+
+For the dataset $T = \{(x_{1}, y_{1}), (x_{2}, y_{2}),\ldots, (x_{N}, y_{N})\}$, we select two subspaces that are assumed to have equal samples: $\mathcal{X}^{(1)}, \mathcal{X}^{(2)} \subseteq \mathcal{X} \subseteq R, $ and $\mathcal{X}^{(1)}\cap\mathcal{X}^{(2)} = \emptyset $. In these two subspaces, we assume the following common relation is present:
+\begin{eqnarray}\label{e1}
+	y = f(x^{*}) + \tilde{\epsilon} = f(x-\epsilon) + \tilde{\epsilon},
+\end{eqnarray}
+where $x^{*}$ is the actual value of $x$  after removing the observation noise; and where  $x = x^{*} + \epsilon$, where $\epsilon$ is the noise term, $\epsilon \sim N(0, \sigma^{2}), $  and $\tilde{\epsilon}_{i}$ is the model error.
+
+According to our assumption,  $f(\cdot)$ is a continuous function; if $\mathcal{X}^{(1)}, \mathcal{X}^{(2)} \to 0$, and $\mathcal{X}^{(1)}\cap \mathcal{X}^{(2)} = \emptyset,
+dis(\mathcal{X}^{(1)}, \mathcal{X}^{(2)}) \to 0 $, $f(\cdot)$ can be approximated as a linear function of $g(\cdot)$, and then (1) can be transformed into
+\begin{eqnarray}\label{e2}
+	y = g(x^{*}) + \epsilon_{1} + \tilde{\epsilon} = g(x-\epsilon) + \epsilon_{1} + \tilde{\epsilon},
+\end{eqnarray}
+where $\epsilon_{1}$ is the linear fitting error term and $\epsilon_{1} \to 0.$
+
+Since the samples we select in $\mathcal{X}^{(1)}, \mathcal{X}^{(2)}$ are equal in size, we assume there are $K$ observation samples; i.e., $\bm{x}^{(j)} = (x_{1}^{(j)}, \ldots, x_{K}^{(j)}) = (x_{1}^{*(j)} + \epsilon_{1}^{(j)}, \ldots, x_{K}^{*(j)} + \epsilon_{K}^{(j)}) \in \mathcal{X}^{(j)}, j=1, 2.$ The expectation of the absolute value of the uniform noise in the space at this time is $\mathcal{X}^{(1)}, \mathcal{X}^{(2)} $:
+\vspace{-9pt}
+\begin{eqnarray*}
+	E(\frac{\sum_{j=1}^{2}\sum_{i=1}^{K}|\epsilon_{i}^{(j)}|}{2K})
+	&=& \int_{-\infty}^{+\infty}|t|\frac{1}{\sqrt{2\pi} \cdot \sigma} e^{-\frac{t^{2}}{2\sigma^{2}}} dt \\
+	&=&
+	\sqrt{\frac{2}{\pi}} \cdot \sigma \int_{0}^{+\infty} \frac{t}{\sigma} t^{-\frac{t^{2}}{2\sigma^{2}}}d\frac{t}{\sigma} \\
+	&=&
+	\sqrt{\frac{2}{\pi}} \cdot \sigma \int_{0}^{+\infty}  e^{-\frac{t^{2}}{2\sigma^{2}}}d\frac{(\frac{t}{\sigma})^{2}}{2} \\
+	&=&
+		\sqrt{\frac{2}{\pi}} \cdot \sigma \cdot \Gamma(1) = \sqrt{\frac{2}{\pi}} \cdot \sigma.
+\end{eqnarray*}
+
+The expectation of the proportion of observed samples with a noise greater than 0.5 is
+\begin{eqnarray*}
+	E(\frac{\sum_{j=1}^{2}\sum_{i=1}^{K}I(|x_{i}^{(j)}-x_{i}^{*(j)}|)>0.5}{2K})
+	&=& 
+	E(\frac{\sum_{j=1}^{2}\sum_{i=1}^{K}I(|\epsilon_{i}^{(j)}|)>0.5}{2K}) \\
+	&=&
+	\frac{\sum_{j=1}^{2}\sum_{i=1}^{K}(P(\epsilon_{i}^{(j)}>0.5)+P(\epsilon_{i}^{(j)}<-0.5))}{2K} \\
+	&=&
+	\frac{\sum_{j=1}^{2}\sum_{i=1}^{K}(P(\displaystyle{\frac{\epsilon_{i}^{(j)}}{\sigma}}>\frac{0.5}{\sigma})+P(\frac{\epsilon_{i}^{(j)}}{\sigma}<\frac{-0.5}{\sigma}))}{2K} \\
+	&=&
+	\frac{\sum_{j=1}^{2}\sum_{i=1}^{K}\Phi(\displaystyle{\frac{-0.5}{\sigma}})}{K} = 2\Phi(\displaystyle{\frac{-0.5}{\sigma}}).
+\end{eqnarray*}
+
+We randomly select two samples from the subspace to perform linear interpolation on them and iterate the process $K$ times. The AMLI method determines the number of interpolation samples according to the distance between two samples. For the sake of simplicity and convenience, we assume that the number of samples in each interpolation is $m$, and the rest of the situation is similar and provable. The sample for the \emph{i}{th} interpolation~is
+\vspace{-21pt}
+\begin{adjustwidth}{-\extralength}{0cm}%\centering
+\begin{eqnarray*}
+	\bm{x}^{'}_{i} 
+	&=& 
+	(x_{i,1}^{'}, x_{i,2}^{'}, \ldots, x_{i,m}^{'}) \\
+	&=&
+	(x_{i}^{(1)} + \frac{x^{(2)}_{i} - x^{(1)}_{i}}{m+1}, x_{i}^{(1)}  + 2 \cdot \frac{x^{(2)}_{i} - x^{(1)}_{i}}{m+1}, \ldots, x_{i}^{(1)} + m \cdot \frac{x^{(2)}_{i} - x^{(1)}_{i}}{m+1})    \\
+	&=&
+	(x_{i}^{*(1)} + \epsilon_{i}^{(1)} + \frac{x^{*(2)}_{i} - x^{*(1)}_{i} + \epsilon_{i}^{(2)} -\epsilon_{i}^{(1)}}{m+1}, \cdots, 
+	x_{i}^{*(1)} + \epsilon_{i}^{(1)} + m \cdot \frac{x^{*(2)}_{i} - x^{*(1)}_{i} + \epsilon_{i}^{(2)} -\epsilon_{i}^{(1)}}{m+1}), 
+\end{eqnarray*}
+\end{adjustwidth}
+where $i = 1,\ldots,K$ and the corresponding output is $y_{i,d}^{'} = y_{i}^{(1)} + d \cdot \frac{y_{i}^{(2)} - y_{i}^{(1)}}{m+1}$. Based on (\ref{e2}), the noise of $\bm{x}_{i,d}^{'}$ is $\epsilon_{i,d}^{'} = \epsilon_{i}^{(1)} + d \cdot \displaystyle{\frac{\epsilon_{i}^{(2)} - \epsilon_{i}^{(1)}}{m+1}}$, $d=1,\ldots,m.$
+
+
+After $K$ interpolations, the uniform noise expectation is
+\begin{equation*}
+	\begin{split}
+		& E(\frac{\sum_{j=1}^{2}\sum_{i=1}^{K}|\epsilon_{i}^{(j)}|+\sum_{i=1}^{K}\sum_{d=1}^{m}|\epsilon_{i}^{(1)} + d \cdot\frac{\epsilon_{i}^{(2)}-\epsilon_{i}^{(1)}}{m+1}|}{2K+K \cdot m}) \\ 
+		& = \frac{\sum_{j=1}^{2}\sum_{i=1}^{k}E(|\epsilon_{i}^{(j)}|)+\sum_{i=1}^{K}\sum_{d=1}^{m}E(|\epsilon_{i}^{(1)} + d \cdot\frac{\epsilon_{i}^{(2)}-\epsilon_{i}^{(1)}}{m+1}|)}{2K+K \cdot m}\\
+		& =
+		\frac{\sum_{j=1}^{2}\sum_{i=1}^{K}E(|\epsilon_{i}^{(j)}|)+\frac{1}{m+1}\sum_{i=1}^{K}\sum_{d=1}^{m}E(|(m-d+1)\epsilon_{i}^{(1)} + d \epsilon_{i}^{(2)}|)}{2K+K \cdot m}\\
+		& =
+		\frac{2+\frac{1}{m+1}\sum_{d=1}^{m}\sqrt{(m-d+1)^{2}+d^{2}}}{2 + m}
+		\cdot \sigma \sqrt{\frac{2}{\pi}} \\
+		& < 
+		\frac{2+\frac{1}{m+1}\sum_{d=1}^{m}\sqrt{(m-d+1)^{2}+d^{2}+2d(m-d+1)}}{2 + m}
+		\cdot \sigma \sqrt{\frac{2}{\pi}}\\
+		& =
+		\frac{2+\frac{1}{m+1}\sum_{d=1}^{m}\sqrt{(m+1)^{2}}}{2 + m}
+		\cdot \sigma \sqrt{\frac{2}{\pi}} = \sigma \sqrt{\frac{2}{\pi}}.
+	\end{split}
+\end{equation*}
+
+The above shows that the uniform noise of the samples after the optimization through the AMLI method is reduced. The expectation for the proportion of samples with a noise greater than 0.5 is
+
+\begin{equation*}
+	\begin{split}
+		& E(\frac{\sum_{j=1}^{2}\sum_{i=1}^{K}I(|\epsilon_{i}^{(j)}|>0.5)+
+			\sum_{i=1}^{K}\sum_{d=1}^{m} I(|\epsilon_{i}^{(1)} + d \cdot \frac{\epsilon_{i}^{(2)}-\epsilon_{i}^{(1)}}{m+1}| > 0.5 )}{2K+K \cdot m}) \\ 
+		& = 
+		\frac{4K \cdot \Phi(\displaystyle{\frac{-0.5}{\sigma}}) + \sum_{i=1}^{K}\sum_{d=1}^{m}p(|\epsilon_{i}^{(1)}+ d \cdot \frac{\epsilon_{i}^{(2)} - \epsilon_{i}^{(1)}}{m+1}|>0.5)}{2K+K \cdot m} \\ 
+		& = 
+		\frac{4K \cdot \Phi(\displaystyle{\frac{-0.5}{\sigma}}) + \sum_{i=1}^{K}\sum_{d=1}^{m}p(\frac{|(m-d+1)\epsilon_{i}^{(1)}+d\cdot \epsilon_{i}^{(2)}|}{\sqrt{(m-d+1)^{2}+d^{2}} \cdot \sigma} >
+			\frac{0.5(m+1)}{\sqrt{(m-d+1)^{2}+d^{2}} \cdot \sigma})}{2K+K \cdot m} \\ 
+		& = 
+		\frac{4  \Phi(\displaystyle{\frac{-0.5}{\sigma}})+ 2\sum_{d=1}^{m}\Phi
+		(-\frac{0.5(m+1)}{\sqrt{(m-d+1)^{2}+d^{2}} \cdot \sigma}) }{2 + m} \\ 
+		& <
+		\frac{4  \Phi(\displaystyle{\frac{-0.5}{\sigma}})+ 2\sum_{d=1}^{m}\Phi
+			(-\frac{0.5(m+1)}{\sqrt{(m-d+1)^{2}+d^{2} +2d(m-d+1)} \cdot \sigma}) }{2 + m}
+		= 2 \Phi(\displaystyle{\frac{-0.5}{\sigma}}).
+	\end{split}
+\end{equation*}
+
+Thus, after being processed by the AMLI method, the proportion of samples with an error greater than 0.5 in the data decreases.
+\section{ Extension}
+
+\subsection{ AMLI Plus}
+
+The above simulation experiments indicate that the selection of parameter $K$ in the AMLI algorithm is very important. The selection of the optimal value of parameter $K$ involves many parameter adjustment calculations while under the influence of randomness, thereby making it difficult to guarantee that the selected $K$ value results in optimal performance at all times. If the AMLI method fails to achieve a good result, we can consider another interpolation method that combines the clustering method to perform linear interpolation between classes; we name this method AMLI plus. Below, we describe specific steps of the AMLI plus method.
+
+First, all observed samples are clustered according to their distribution. Assuming that the number of clusters is $K$, and accordingly, the virtual space is divided into $K$ subspaces, each containing all observed samples of the same category:
+$$ T = \{(\bm{x}_{1}, y_{1}), (\bm{x}_{2}, y_{2}), \ldots, (\bm{x}_{k}, y_{k})\} = \{G_{1}, G_{2}, \ldots, G_{K}\},$$
+where $G_{1}$ represents the class whose center is closest to the minimum point of the feature space $\bm{x}_{0}$; the center of the class is $\bar{\bm{x}}^{(d)}=\displaystyle{\frac{1}{n^{(d)}}}\sum_{i=1}^{n^{(d)}}\bm{x}_{i}^{(d)}$, $d=1,\ldots,K,$ $n^{(d)}$ $G_{d} , d = 1,\ldots,K;$ $n^{(d)}$ is the number of samples in $G_{d}$; and $G_{d+1}$ satisfies $\bar{\bm{x}}^{(d+1)} = \mathop{argmin}\limits_{\{\bar{\bm{x}}:\bar{\bm{x}} \neq \bar{\bm{x}}^{(1)}, \ldots, \bar{\bm{x}}^{(d)} \}} (L(\bar{\bm{x}}^{(d)}, \bar{\bm{x}})) $. The choice of clustering method can be diverse; additionally, the $K$-$means$, the $X$-$means$ or the $DBSCAN$ method, which can eliminate noise points according to \hl{Ester et al.} \cite{ref15}, \hl{can} be selected.
+
+
+Second, interpolation is performed between classes, in which the unit distance filling parameter $\eta$ is defined; additionally, $n^{(d)} \cdot n^{(d+1)}$  linear interpolations are performed between $\bm{x}_{i}^{(d)} \in G_{d}$ and all samples in $G_{d+1}$. The number of interpolation samples is $\sum_{j=1}^{n^{(d+1)}} \sum_{i=1}^{n^{(d)}} \eta \cdot L(\bm{x}_{i}^{(d)}, \bm{x}_{j}^{(d+1)}),$ and the interpolated samples are also equally spaced.\\The specific implementation process of the AMLI method is detailed in Algorithm~\ref{alg:algorithm2}
+\vspace{6pt}
+
+
+\begin{algorithm}[H]
+	\SetAlgoLined %显示end
+	\label{alg:algorithm2}
+	\caption{\hl{AMLl} plus }%算法名字%MDPI:%MDPI: Please cite the algorithm 1 in the text and ensure the first citation of each figure appears in numerical order.
+	\KwIn{$ unit$ $distance$ $filling$ $parameter$ $\eta$
+		\\ \hspace{3em} $distance$ $measurement$ $method$  $L(\cdot)$
+		\hspace{3em}\\
+		\hspace{3em} $minimum$ $point$ $of$ $feature$ $space$ $\bm{x}_{0}$
+		\\\hspace{3em}
+		$set$ $\bm{G}_{1},$ $\bm{G}_{2},$ $\ldots,$ $\bm{G}_{k}$}%输入参数
+	\KwOut{$T$ $(Resulting$ $dataset)$}%输出
+	\For{$d = 1, \ldots, K-1 $}
+	{\For{$h=1, \ldots, n^{(d)}$}
+		{\For{$j=1, \ldots, n^{(d+1)}$}
+			{\For{$i=1, \ldots, \eta \cdot L(\bm{x}^{(d+1,j)}, \bm{x}^{(d,h)})$}{$\bm{x}^{(h,j,i)}_{d} = \bm{x}^{(d,h)} + i \cdot \displaystyle{\frac{\bm{x}^{(d+1,j)}-\bm{x}^{(d,h)}}{\eta \cdot L(\bm{x}^{(d+1,j)}, \bm{x}^{(d,h)}) + 1}},$   ${y}^{(h,j,i)}_{d} = {y}^{(d,h)} + i \cdot \displaystyle{\frac{{y}^{(d+1,j)}-{y}^{(d,h)}}{\eta \cdot L(y^{(d+1,j)}, y^{(d,h)} + 1}}.$ \\ \hspace{0.2em} $Add$ $(\bm{x}_{d}^{(h, j, i)}, y_{d}^{(h, j, i)})$ $to$ $dataset$ $T$
+				}
+	}}}
+\end{algorithm}
+\subsection{ The Proof of AMLI Plus}
+
+In this section, we will present evidence of the effectiveness of the AMLI plus method. The proof idea is essentially the same as that of the AMLI method, and we will focus on the differences between the two.
+
+Unlike the AMLI method, the AMLI plus method divides the virtual space into $K$ subspaces according to the number of clusters, and each subspace contains all observation samples of the same category; thus, the sample size of each subspace may vary. It is assumed that two adjacent subspaces, namely, $\mathcal{X}^{(1)}, \mathcal{X}^{(2)} $, contain $n^{(1)},$ $n^{(2)}$ samples, respectively; additionally, it is assumed that $n^{(1)} \cdot n^{(2)}$ linear interpolations are performed. For the sake of simplicity, assuming that the number of samples interpolated each time is $m$, then the uniform noise after the interpolation is
+\begin{equation*}
+\begin{split}
+	& E(\frac{\sum_{i=1}^{n^{(1)}}|\epsilon_{i}^{(1)}| + \sum_{i=1}^{n^{(2)}}|\epsilon_{i}^{(2)}| + \sum_{i=1}^{n^{(1)}}\sum_{j=1}^{n^{(2)}}\sum_{d=1}^{m} \left|\epsilon_{i}^{(1)} + d \cdot \frac{ \epsilon_{j}^{(2)} - \epsilon_{i}^{(1)} }{m+1}  \right|
+	}
+	{n^{(1)}+n^{(2)}+n^{(1)}n^{(2)}m}) \\ 
+	& =  	\frac{\sum_{i=1}^{n^{(1)}} E(|\epsilon_{i}^{(1)}|) + \sum_{i=1}^{n^{(2)}} E(|\epsilon_{i}^{(2)}|) + \sum_{i=1}^{n^{(1)}}\sum_{j=1}^{n^{(2)}}\sum_{d=1}^{m} E(\left|\epsilon_{i}^{(1)} + d \cdot \frac{ \epsilon_{j}^{(2)} - \epsilon_{i}^{(1)} }{m+1}  \right|)
+	}
+	{n^{(1)}+n^{(2)}+n^{(1)}n^{(2)}m} \\
+	& = 	\frac {n^{(1)}\sigma \sqrt{\frac{2}{n}} + n^{(2)}\sigma\sqrt{\frac{2}{n}} + \frac{1}{m+1}\sum_{i=1}^{n^{(1)}}\sum_{j=1}^{n^{(2)}}\sum_{d=1}^{m} E(\left|(m - d +1)\epsilon_{i}^{(1)} + d   \epsilon_{i}^{(2)}   \right|)
+    }
+	{n^{(1)}+n^{(2)}+n^{(1)}n^{(2)}m}	\\
+	& = 	\frac {n^{(1)} + n^{(2)} + \frac{n^{(1)}n^{(2)}}{m+1}    \sum_{d=1}^{m} \sqrt{(m-d+1)^{2} + d^{2}}
+	}
+	{n^{(1)}+n^{(2)}+n^{(1)}n^{(2)}m} \cdot \sigma \sqrt{\frac{2}{\pi}} \\
+	& < \frac {n^{(1)} + n^{(2)} + \frac{n^{(1)}n^{(2)}}{m+1}    \sum_{d=1}^{m} \sqrt{(m-d+1)^{2} + d^{2} +2d(m-d+1)}
+	}
+	{n^{(1)}+n^{(2)}+n^{(1)}n^{(2)}m} \cdot \sigma \sqrt{\frac{2}{\pi}}
+	 \\
+	& = \frac {n^{(1)} + n^{(2)} + \frac{n^{(1)}n^{(2)}}{m+1}    \sum_{d=1}^{m} m+1
+	}
+	{n^{(1)}+n^{(2)}+n^{(1)}n^{(2)}m} \cdot \sigma \sqrt{\frac{2}{\pi}}
+	 = \sigma \sqrt{\frac{2}{\pi}}.
+\end{split}
+\end{equation*}
+
+Thus, the uniform noise after optimization by the AMLI plus method is reduced. The proportion of samples with a noise error greater than 0.5 is expected to be
+\vspace{-12pt}
+\begin{adjustwidth}{-\extralength}{0cm}%\centering
+\begin{equation*}
+	\begin{split}
+& E(\frac{\sum_{i=1}^{n^{(1)}} I (|\epsilon_{i}^{(1)}| > 0.5 ) + \sum_{i=1}^{n^{(2)}} I (|\epsilon_{i}^{(2)}| > 0.5 )  + \sum_{i=1}^{n^{(1)}}\sum_{j=1}^{n^{(2)}}\sum_{d=1}^{m}I( \left|\epsilon_{i}^{(1)} + d \cdot \frac{ \epsilon_{j}^{(2)} - \epsilon_{i}^{(1)} }{m+1}  \right| >0.5)
+}
+{n^{(1)}+n^{(2)}+n^{(1)}n^{(2)}m}) \\ 
+& = \frac{\sum_{i=1}^{n^{(1)}} P (|\epsilon_{i}^{(1)}| > 0.5 ) + \sum_{i=1}^{n^{(2)}} P (|\epsilon_{i}^{(2)}| > 0.5 )  + \sum_{i=1}^{n^{(1)}}\sum_{j=1}^{n^{(2)}}\sum_{d=1}^{m}P( \left|\epsilon_{i}^{(1)} + d \cdot \frac{ \epsilon_{j}^{(2)} - \epsilon_{i}^{(1)} }{m+1}  \right| >0.5)
+}
+{n^{(1)}+n^{(2)}+n^{(1)}n^{(2)}m} \\ 
+& = \frac{2(n^{(1)} + n^{(2)})\Phi\left(\displaystyle{\frac{-0.5}{\sigma}}\right)  + \sum_{i=1}^{n^{(1)}}\sum_{j=1}^{n^{(2)}}\sum_{d=1}^{m}
+	P(\displaystyle{\frac{|(m-d+1)\epsilon_{i}^{(1)} + d\cdot \epsilon_{j}^{(2)}|}{\sqrt{(m-d+1)^{2} + d^{2}} \cdot \sigma}}  > \frac{0.5(m+1)}{\sqrt{(m-d+1)^{2} + d^{2}} \cdot \sigma})
+}
+{n^{(1)}+n^{(2)}+n^{(1)}n^{(2)}m} \\ 
+& = \frac{2(n^{(1)} + n^{(2)})\Phi\left(\displaystyle{\frac{-0.5}{\sigma}}\right)  + 2n^{(1)}n^{(2)}\sum_{d=1}^{m}\Phi\left(-\displaystyle{\frac{0.5(m+1)}{\sqrt{(m-d+1)^{2} + d^{2} \cdot \sigma}}}\right)
+}
+{n^{(1)}+n^{(2)}+n^{(1)}n^{(2)}m} \\ 
+& < \frac{2(n^{(1)} + n^{(2)})\Phi\left(\displaystyle{\frac{-0.5}{\sigma}}\right)  + 2n^{(1)}n^{(2)}\sum_{d=1}^{m}\Phi\left(-\displaystyle{\frac{0.5(m+1)}{\sqrt{(m-d+1)^{2} + d^{2} +2d(m-d+1) }\cdot \sigma}}\right)
+}
+{n^{(1)}+n^{(2)}+n^{(1)}n^{(2)}m} = 2 \Phi\left(\frac{-0.5}{\sigma}\right).
+\end{split}
+\end{equation*}
+\end{adjustwidth}
+
+Therefore, after the samples are processed by the AMLI plus method, the proportion of samples with an error greater than 0.5 in the data decreases.
+
+\begin{Remark}
+ {The} 
+ proof rationale of the AMLI plus method is to divide the clustered samples of different categories into different subspaces and to assume that neighboring subspaces have a common linear relationship; therefore, when the number of clusters and the clustering method are selected, the above requirement should be satisfied as much as possible.
+\end{Remark}
+
+\section{ Conclusions}
+
+In this study, we propose a multipath sample interpolation method based on the idea of linear interpolation, which can solve the problem of insufficient sample sizes or large errors between observed samples and actual distribution when making predictions. The AMLI method, simple to implement and flexible, can greatly expand valid samples, reduce the influence of sample noise, and thus significantly improve the prediction effect. Finally, we propose the AMLI plus method, another class-to-class-based linear interpolation method, which can also achieve good optimization results. In general, we find that the AMLI method is robust, effective, and very suitable for addressing a series of problems in machine learning, e.g., insufficient sample sizes and large amounts of observation noise.
+
+\vspace{6pt}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\authorcontributions{\hl{Methodology,} H.W.; Software, Y.D.; Writing---original draft, X.J.; Writing---review \& editing, M.L.  {All} authors have read and agreed to the published version of the manuscript. }  %MDPI: We added the Author Contributions according to the information submitted online at susy.mdpi.com, and we changed the author's name into an abbreviated format. Please confirm.
+
+
+\funding{This research was supported by the National Social Science Fund of China under Grant No. 22BTJ021, “Qinglan project” of Colleges and Universities of Jiangsu Province and Postgraduate Research \& Practice
+Innovation Program of Jiangsu Province under Grant No. KYCX22\_2148. }
+
+\institutionalreview{Not applicable.}
+
+\informedconsent{Not applicable.}
+
+\dataavailability{Not applicable.} 
+
+\acknowledgments{The authors would like to thank the editor and reviewers for the valuable advice given in order to develop the article.}
+
+\conflictsofinterest{The authors declare no conﬂict of interest.} 
+
+
+
+
+%\textbf{Author Contributions} : 
+%
+%\textbf{Funding} : 
+%
+%\textbf{Institutional Review Board Statement} : 
+%
+%\textbf{Informed Consent Statement} : 
+%
+%
+%\textbf{Data Availability Statement} : 
+%
+%\textbf{Acknowledgments} : 
+%
+%\textbf{Conflicts of Interest} : 
+%\renewcommand{\baselinestretch}{1}
+%
+%
+%\vspace{-10pt}
+%
+%\renewcommand\bibnumfmt[1]{#1.}%参考文献去边框
+
+\begin{adjustwidth}{-\extralength}{0cm}
+%\printendnotes[custom] % Un-comment to print a list of endnotes
+
+\reftitle{References}
+
+ 
+\begin{thebibliography}{999}
+%\renewcommand{\baselinestretch}{0.5}
+\bibitem{ref1}De Boor, C. \emph{A Practical Guide to Splines};  Springer: New York, NY, USA, 1978.
+\bibitem{ref2}Mitas, L.; Mitasova, H. Spatial interpolation. \emph{Geogr. Inf. Syst. Princ. Tech. Manag. Appl.} $\bm{1999}$, \emph{1}, 481--492.
+\bibitem{ref3}Lu, G.Y.; Wong, D.W. An adaptive inverse distance weighting spatial interpolation technique. \emph{Comput. Geosci.} $\bm{2008}$, \emph{34}, 1044--1055.
+\bibitem{ref4}Efron, B. Bootstrap methods: Another look at the jackknife. In \emph{Breakthroughs in Statistics}; Springer: New York, NY,  USA, 1992; \mbox{pp. 569--593}.
+\bibitem{ref5}Chawla, N.V.; Bowyer, K.W.; Hall, L.O.; Kegelmeyer, W.P. SMOTE: Synthetic minority over-sampling technique. \emph{J. Artif. Intell. Res.} $\bm{2002}$, \emph{16}, 321--357.
+\bibitem{ref6}Pan, S.J.; Yang, Q. A survey on transfer learning. \emph{IEEE Trans. Knowl. Data Eng.} $\bm{2010}$, \emph{22}, 1345--1359.
+\bibitem{ref7}Fernández, A.; Garcia, S.; Herrera, F.; Chawla, N.V.  SMOTE for learning from imbalanced data: Progress and challenges, marking the 15-year anniversary. \emph{J. Artif. Intell. Res.} $\bm{2018}$, \emph{61}, 863--905.
+\bibitem{ref8}Zhu, X.J. \emph{Semi-Supervised Learning Literature Survey};  University of Wisconsin-Madison:   Madison, WI, USA, {{2005}}.  
+
+\bibitem{ref9} Eisenberger, M.; Novotny, D.; Kerchenbaum, G.;  Labatut, P.; Neverova, N.; Cremers, D.;  Vedaldi, A. Neuromorph: Unsupervised shape interpolation and correspondence in one go. In Proceedings of the IEEE/CVF Conference on Computer Vision and Pattern Recognition, {Nashville, TN, USA, 20--25 June  2021}
+; pp. 7473--7483.
+\bibitem{ref10}	Wang, Y.; Yao, Q.; Kwok, J.T.; Ni, L.M. Generalizing from a few examples: A survey on few-shot learning. \emph{ACM Comput. Surv.} $\bm{2020}$, \emph{53}, 1--34.
+\bibitem{ref11} Vinyals, O.; Blundell, C.; Lillicrap, T.;  Wierstra, D. Matching networks for one shot learning. \emph{Adv. Neural Inf. Process. Syst.} $\bm{2016}$, \emph{29}, 3637--3645.
+\bibitem{ref12} Snell, J.; Swersky, K.; Zemel, R. Prototypical networks for few-shot learning. \emph{Adv. Neural Inf. Process. Syst.} $\bm{2017}$, \emph{30}, 4077--4087.
+\bibitem{ref13}	Kokol, P.; Kokol, M.; Zagoranski, S. Machine learning on small size samples: A synthetic knowledge synthesis. \emph{Sci. Prog.} $\bm{2022}$, \emph{105}, 1--15.
+\bibitem{ref14} Zhou, Y.; Zhi, G.; Chen, W.; Qian, Q.; He, D.; Sun, B.;  Sun, W. A new tool wear condition monitoring method based on deep learning under small samples. \emph{Measurement} $\bm{2022}$, \emph{189}, 110622.
+\bibitem{ref15} \hl{Ester, M.; Kriegel, H.P.; Sander, J.; Xu, X. A density-based algorithm for discovering clusters in large spatial databases with noise.kdd.} \emph{{KDD} 
+}  $\bm{1996}$, \emph{96}, 226--231. %MDPI: This Bibliography is not mentioned, please check and revise
+\end{thebibliography}	
+
+\PublishersNote{}
+\end{adjustwidth}
+\end{document}

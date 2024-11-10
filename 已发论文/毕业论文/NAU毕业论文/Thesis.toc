@@ -1,0 +1,49 @@
+\contentsline {chapter}{摘要}{I}{Doc-Start}%
+\contentsline {chapter}{Abstract}{II}{Doc-Start}%
+\contentsline {chapter}{\numberline {第一章\hspace {.3em}}绪言}{1}{chapter.1}%
+\contentsline {section}{\numberline {1.1}研究背景及意义}{1}{section.1.1}%
+\contentsline {section}{\numberline {1.2}研究现状}{2}{section.1.2}%
+\contentsline {subsection}{\numberline {1.2.1}基于规则的方法}{2}{subsection.1.2.1}%
+\contentsline {subsection}{\numberline {1.2.2}基于统计的方法}{3}{subsection.1.2.2}%
+\contentsline {subsection}{\numberline {1.2.3}基于机器学习的方法}{3}{subsection.1.2.3}%
+\contentsline {subsection}{\numberline {1.2.4}基于混合的方法}{4}{subsection.1.2.4}%
+\contentsline {section}{\numberline {1.3}主要研究内容}{5}{section.1.3}%
+\contentsline {section}{\numberline {1.4}本文创新}{6}{section.1.4}%
+\contentsline {chapter}{\numberline {第二章\hspace {.3em}}相关概念界定}{7}{chapter.2}%
+\contentsline {section}{\numberline {2.1}无监督聚类}{7}{section.2.1}%
+\contentsline {section}{\numberline {2.2}旅行商问题}{8}{section.2.2}%
+\contentsline {subsection}{\numberline {2.2.1}相关概念}{8}{subsection.2.2.1}%
+\contentsline {subsection}{\numberline {2.2.2}旅行商问题求解方法}{8}{subsection.2.2.2}%
+\contentsline {subsection}{\numberline {2.2.3}TSP的实际应用}{9}{subsection.2.2.3}%
+\contentsline {subsection}{\numberline {2.2.4}TSP的变体}{10}{subsection.2.2.4}%
+\contentsline {section}{\numberline {2.3}最小权匹配问题}{11}{section.2.3}%
+\contentsline {subsection}{\numberline {2.3.1}相关概念}{11}{subsection.2.3.1}%
+\contentsline {subsection}{\numberline {2.3.2}最小权匹配问题求解方法}{11}{subsection.2.3.2}%
+\contentsline {section}{\numberline {2.4}卷积神经网络}{12}{section.2.4}%
+\contentsline {subsection}{\numberline {2.4.1}基本结构}{12}{subsection.2.4.1}%
+\contentsline {subsection}{\numberline {2.4.2}相关应用}{13}{subsection.2.4.2}%
+\contentsline {chapter}{\numberline {第三章\hspace {.3em}}基于特征子空间插值的数据合成方法}{14}{chapter.3}%
+\contentsline {section}{\numberline {3.1}特征子空间的划分}{15}{section.3.1}%
+\contentsline {subsection}{\numberline {3.1.1}层次聚类}{15}{subsection.3.1.1}%
+\contentsline {subsection}{\numberline {3.1.2}K近邻优化}{17}{subsection.3.1.2}%
+\contentsline {section}{\numberline {3.2}子空间插值路径排序}{18}{section.3.2}%
+\contentsline {section}{\numberline {3.3}相邻子空间线性回归拟合}{19}{section.3.3}%
+\contentsline {section}{\numberline {3.4}多阶段最小权匹配}{23}{section.3.4}%
+\contentsline {section}{\numberline {3.5}方法整体分析}{27}{section.3.5}%
+\contentsline {chapter}{\numberline {第四章\hspace {.3em}}RSIS优化效果实验}{30}{chapter.4}%
+\contentsline {section}{\numberline {4.1}模拟实验}{30}{section.4.1}%
+\contentsline {subsection}{\numberline {4.1.1}实验设计}{30}{subsection.4.1.1}%
+\contentsline {subsection}{\numberline {4.1.2}优化效果分析}{31}{subsection.4.1.2}%
+\contentsline {subsection}{\numberline {4.1.3}超参数分析}{33}{subsection.4.1.3}%
+\contentsline {section}{\numberline {4.2}实例分析}{34}{section.4.2}%
+\contentsline {subsection}{\numberline {4.2.1}数据集介绍}{34}{subsection.4.2.1}%
+\contentsline {subsection}{\numberline {4.2.2}优化效果分析}{35}{subsection.4.2.2}%
+\contentsline {chapter}{\numberline {第五章\hspace {.3em}}结合卷积神经网络的进一步研究}{37}{chapter.5}%
+\contentsline {section}{\numberline {5.1}方法概述}{38}{section.5.1}%
+\contentsline {section}{\numberline {5.2}数据集及模型网络介绍}{39}{section.5.2}%
+\contentsline {section}{\numberline {5.3}针对CNN模型预测的优化效果分析}{40}{section.5.3}%
+\contentsline {chapter}{\numberline {第六章\hspace {.3em}}总结与展望}{43}{chapter.6}%
+\contentsline {chapter}{参考文献}{44}{chapter*.17}%
+\contentsline {chapter}{硕士期间科研相关成果}{49}{chapter*.18}%
+\contentsline {chapter}{致谢}{50}{chapter*.19}%
+\contentsfinish 

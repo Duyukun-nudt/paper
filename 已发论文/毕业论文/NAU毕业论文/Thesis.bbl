@@ -1,0 +1,47 @@
+\begin{thebibliography}{5}
+\providecommand{\natexlab}[1]{#1}
+\providecommand{\url}[1]{#1}
+\expandafter\ifx\csname urlstyle\endcsname\relax\else
+  \urlstyle{same}\fi
+\expandafter\ifx\csname href\endcsname\relax
+  \DeclareUrlCommand\doi{\urlstyle{rm}}
+  \def\eprint#1#2{#2}
+\else
+  \def\doi#1{\href{https://doi.org/#1}{\nolinkurl{#1}}}
+  \let\eprint\href
+\fi
+
+\bibitem[杨宇(2006)]{__2006}
+杨宇.
+\newblock 多指标综合评价中赋权方法评析\allowbreak[J].
+\newblock 统计与决策, 2006\allowbreak (13): 17-19.
+
+\bibitem[罗楚亮\ 等(2021)罗楚亮, 李实, and 岳希明]{_20132018_2021}
+罗楚亮, 李实, 岳希明.
+\newblock 中国居民收入差距变动分析(2013—2018)\allowbreak[J].
+\newblock 中国社会科学, 2021\allowbreak (01): 33-54+204-205.
+
+\bibitem[Kolm(1977)]{kolm_multidimensional_1977}
+Kolm S~C.
+\newblock Multidimensional egalitarianisms\allowbreak[J].
+\newblock The Quarterly Journal of Economics, 1977: 1-13.
+
+\bibitem[Maasoumi(1986)]{maasoumi_measurement_1986}
+Maasoumi E.
+\newblock The measurement and decomposition of multi-dimensional
+  inequality\allowbreak[J].
+\newblock Econometrica: Journal of the Econometric Society, 1986: 991-997.
+
+\bibitem[Tsui(1995)]{tsui_multidimensional_1995}
+Tsui K~Y.
+\newblock Multidimensional generalizations of the relative and absolute
+  inequality indices: the {Atkinson}-{Kolm}-{Sen} approach\allowbreak[J].
+\newblock Journal of Economic Theory, 1995, 67\allowbreak (1): 251-265.
+
+\bibitem[杨耀武(2006)]{ref1}
+杨耀武.
+\newblock 中国经济高质量发展的逻辑, 测度与治理\allowbreak[J].
+\newblock 经济研究, 2021\allowbreak (13): 17-19.
+
+
+\end{thebibliography}
