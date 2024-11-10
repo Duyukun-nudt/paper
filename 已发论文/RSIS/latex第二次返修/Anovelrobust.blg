@@ -1,0 +1,54 @@
+This is BibTeX, Version 0.99d (TeX Live 2024)
+Capacity: max_strings=200000, hash_size=200000, hash_prime=170003
+The top-level auxiliary file: Anovelrobust.aux
+The style file: elsarticle-num.bst
+Database file #1: ref.bib
+Warning--entry type for "bib89" isn't style-file defined
+--line 576 of file ref.bib
+Warning--empty journal in bib28
+Warning--can't use both volume and number fields in bib57
+Warning--empty journal in bib61
+Warning--empty journal in bib90
+Warning--can't use both volume and number fields in bib91
+You've used 64 entries,
+            2952 wiz_defined-function locations,
+            1027 strings with 16306 characters,
+and the built_in function-call counts, 20838 in all, are:
+= -- 1987
+> -- 697
+< -- 21
++ -- 275
+- -- 211
+* -- 1356
+:= -- 2753
+add.period$ -- 65
+call.type$ -- 64
+change.case$ -- 61
+chr.to.int$ -- 0
+cite$ -- 69
+duplicate$ -- 691
+empty$ -- 2352
+format.name$ -- 268
+if$ -- 5443
+int.to.chr$ -- 0
+int.to.str$ -- 64
+missing$ -- 62
+newline$ -- 202
+num.names$ -- 64
+pop$ -- 444
+preamble$ -- 1
+purify$ -- 0
+quote$ -- 0
+skip$ -- 1429
+stack$ -- 0
+substring$ -- 1261
+swap$ -- 198
+text.length$ -- 21
+text.prefix$ -- 0
+top$ -- 0
+type$ -- 0
+warning$ -- 5
+while$ -- 167
+width$ -- 66
+write$ -- 541
+(There were 6 warnings)
