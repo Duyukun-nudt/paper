@@ -259,13 +259,13 @@ undermines the reliability and accuracy of analytical and predictive
 models. It refers to any inaccurate, irrelevant, or misleading 
 information within the data, which may stem from various reasons such 
 as instrument errors, data entry mistakes, transmission issues, or even 
-systematic biases in the data collection process \cite{bib1,bib2,bib3}. In many practical 
+systematic biases in the data collection process \cite{bib2,bib3}. In many practical 
 scenarios, the distribution of noise is intricate and not well-defined, 
 leading to substantial reductions in the efficacy of data analysis 
 and machine learning models. This problem is particularly critical 
 in fields that demand highly accurate predictions and analyses, 
 such as medical image analysis, quantitative finance, and 
-environmental surveillance \cite{bib4,bib5,bib6}. In these domains, even minor data 
+environmental surveillance \cite{bib4,bib5}. In these domains, even minor data 
 errors can lead to serious consequences. Therefore, effectively 
 identifying and handling noise in the data has become a crucial 
 technique in improving the accuracy and reliability of predictive 
@@ -273,7 +273,7 @@ models.
 
 To address the problem of datasets with unknown noise, researchers 
 have developed a variety of methods, including data cleaning \cite{bib7,bib8}, 
-data smoothing \cite{bib9,bib10,bib11}, and outlier detection \cite{bib12,bib13}. These methods 
+data smoothing \cite{bib9,bib11}, and outlier detection \cite{bib12}. These methods 
 primarily focus on mitigating or removing noise from the data, but 
 their effectiveness is limited and can result in information loss \cite{bib14}. 
 For instance, outliers may in some cases be an important information 
@@ -294,7 +294,7 @@ While traditional methods offer some effectiveness under specific
 conditions, they often fall short in real-world applications 
 characterized by complex noise patterns, particularly in datasets 
 with a limited number of samples. 
-{In addition, existing data synthesis methods, which aim to perform data augmentation, sample expansion, and simulation by generating non-real yet statistically representative data, do not exhibit robust performance on noisy datasets, primarily because most were not designed to address sample noise issues \cite{bib21,bib26,bib33,bib37,bib40}.}
+{In addition, existing data synthesis methods, which aim to perform data augmentation, sample expansion, and simulation by generating non-real yet statistically representative data, do not exhibit robust performance on noisy datasets, primarily because most were not designed to address sample noise issues \cite{bib21,bib37}.}
 Against this backdrop, we introduce 
 a novel data synthesis method for datasets with unknown noise, based 
 on the concept of feature subspace interpolation, named Robust 
@@ -373,7 +373,7 @@ such as Monte Carlo simulations and surrogate models employ random
 sampling or simplified representations to accurately emulate data 
 distributions. This approach facilitates the analysis of complex 
 system behaviors, enables rapid assessment of system responses, and 
-significantly enhances the quality and accessibility of data \cite{bib23,bib25}.
+significantly enhances the quality and accessibility of data \cite{bib25}.
 
 Statistical-based methods can be subdivided into parametric and 
 non-parametric, utilizing statistical models to estimate data 
@@ -393,7 +393,7 @@ methods along with their variants (SVM-SMOTE, SMOTE-ENC), do not rely
 on fixed distribution models but infer the shape of distributions 
 directly from the data, thereby affording greater flexibility in 
 accommodating various types and configurations of data distributions 
-\cite{bib33,bib31,bib32,bib34,bib35}.
+\cite{bib33,bib31}.
 
 Data synthesis methods based on machine learning have seen rapid 
 development in recent years, particularly with the emergence of 
@@ -401,11 +401,11 @@ technologies like Generative Adversarial Networks (GANs), Variational
 Autoencoders (VAEs), and Conditional Generative Adversarial Networks 
 (cGANs). GANs introduced an innovative adversarial training mechanism, 
 where the generator and discriminator engage in competition, enabling 
-the generator to produce increasingly realistic data \cite{bib37,bib36,bib38}. VAEs 
+the generator to produce increasingly realistic data \cite{bib38}. VAEs 
 model high-dimensional data distributions by optimizing the 
 variational lower bound of the latent space, providing a robust 
 mathematical framework for the analysis of complex data 
-distributions \cite{bib40,bib39}. cGANs, by incorporating conditional variables, 
+distributions \cite{bib39}. cGANs, by incorporating conditional variables, 
 allow for the addition of specific conditions during the data 
 generation process, thus providing enhanced flexibility and control 
 in data synthesis \cite{bib41,bib42}. Moreover, autoregressive models such as 
@@ -424,7 +424,7 @@ their uncertainty \cite{bib46,bib47}. The DPMM, a non-parametric Bayesian
 approach, adapts automatically to data, enabling a flexible number 
 of infinite latent categories or components for accurately modeling 
 data distributions, thereby producing synthetic data that mirrors 
-the complex structure of the original data \cite{bib48,bib49}. The HMM adds a 
+the complex structure of the original data \cite{bib49}. The HMM adds a 
 hierarchical structure to mixture models, allowing for variability 
 at different levels and facilitating the creation of synthetic data 
 that more closely resembles the inherent hierarchical organization of 
@@ -703,11 +703,11 @@ finding polynomial-time solutions as graph complexity increases.
 Widely applicable in logistics, planning, and manufacturing, 
 the TSP's direct solution is complex, prompting the development 
 of heuristic and approximation algorithms to seek near-optimal 
-solutions efficiently \cite{bib56,bib57}. To ensure that a sufficiently good 
+solutions efficiently \cite{bib57}. To ensure that a sufficiently good 
 solution can be obtained within an acceptable timeframe, we first 
 employ a greedy algorithm to quickly find an initial solution, 
 which is then optimized using the 3-opt method to arrive at the 
-final solution \cite{bib61,bib64}, as is shown 
+final solution \cite{bib64}, as is shown 
 in Fig. \ref{Fig4}. Ultimately, a sorted set 
 $D_\text{sorted}=\{D_{(s)}\}_{s=1}^{k'}$ is obtained. Corresponydingly, $\mathcal{X}_{\text{sorted}}=\cup_{s=1}^{k^\prime}\mathcal{X}^{(s)}$. In the subsequent sections of this paper, the feature 
 subspace corresponding to two subsets with adjacent indices will be 
@@ -801,7 +801,7 @@ However, given the assumption that $f(\cdot)$ is a continuous
 function, merely conducting linear fitting based on samples from 
 two subspaces does not adequately take into account global 
 information. Therefore, we integrate the principle of soft 
-parameter sharing mechanisms \cite{bib70,bib71}, estimating linear functions 
+parameter sharing mechanisms \cite{bib70}, estimating linear functions 
 among multiple subspaces simultaneously, and incorporates the number of $k^\prime$ 
 $L_1$ regularization term in the design of the loss function. This approach ensures that the estimation of each linear function 
 $\hat{g}_{s,s+1}(\cdot)$ incorporates global information to the 

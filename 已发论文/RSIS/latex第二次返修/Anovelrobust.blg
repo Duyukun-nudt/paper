@@ -7,48 +7,47 @@ Warning--entry type for "bib89" isn't style-file defined
 --line 576 of file ref.bib
 Warning--empty journal in bib28
 Warning--can't use both volume and number fields in bib57
-Warning--empty journal in bib61
 Warning--empty journal in bib90
 Warning--can't use both volume and number fields in bib91
-You've used 64 entries,
+You've used 50 entries,
             2952 wiz_defined-function locations,
-            1027 strings with 16306 characters,
-and the built_in function-call counts, 20838 in all, are:
-= -- 1987
-> -- 697
-< -- 21
-+ -- 275
-- -- 211
-* -- 1356
-:= -- 2753
-add.period$ -- 65
-call.type$ -- 64
-change.case$ -- 61
+            958 strings with 14109 characters,
+and the built_in function-call counts, 16694 in all, are:
+= -- 1589
+> -- 548
+< -- 19
++ -- 216
+- -- 166
+* -- 1080
+:= -- 2183
+add.period$ -- 51
+call.type$ -- 50
+change.case$ -- 48
 chr.to.int$ -- 0
-cite$ -- 69
-duplicate$ -- 691
-empty$ -- 2352
-format.name$ -- 268
-if$ -- 5443
+cite$ -- 54
+duplicate$ -- 562
+empty$ -- 1893
+format.name$ -- 210
+if$ -- 4364
 int.to.chr$ -- 0
-int.to.str$ -- 64
-missing$ -- 62
-newline$ -- 202
-num.names$ -- 64
-pop$ -- 444
+int.to.str$ -- 50
+missing$ -- 47
+newline$ -- 160
+num.names$ -- 50
+pop$ -- 360
 preamble$ -- 1
 purify$ -- 0
 quote$ -- 0
-skip$ -- 1429
+skip$ -- 1146
 stack$ -- 0
-substring$ -- 1261
-swap$ -- 198
-text.length$ -- 21
+substring$ -- 1040
+swap$ -- 170
+text.length$ -- 19
 text.prefix$ -- 0
 top$ -- 0
 type$ -- 0
-warning$ -- 5
-while$ -- 167
-width$ -- 66
-write$ -- 541
-(There were 6 warnings)
+warning$ -- 4
+while$ -- 136
+width$ -- 52
+write$ -- 426
+(There were 5 warnings)
