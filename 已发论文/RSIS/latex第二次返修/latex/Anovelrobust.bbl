@@ -1,0 +1,160 @@
+\begin{thebibliography}{10}
+\expandafter\ifx\csname url\endcsname\relax
+  \def\url#1{\texttt{#1}}\fi
+\expandafter\ifx\csname urlprefix\endcsname\relax\def\urlprefix{URL }\fi
+\expandafter\ifx\csname href\endcsname\relax
+  \def\href#1#2{#2} \def\path#1{#1}\fi
+
+\bibitem{bib2}
+N.~Pavlidou, A.~H. Vinck, J.~Yazdani, B.~Honary, Power line communications: state of the art and future trends, IEEE Communications magazine 41~(4) (2003) 34--40.
+
+\bibitem{bib3}
+D.~Cabric, S.~M. Mishra, R.~W. Brodersen, Implementation issues in spectrum sensing for cognitive radios, in: Conference Record of the Thirty-Eighth Asilomar Conference on Signals, Systems and Computers, 2004., Vol.~1, Ieee, 2004, pp. 772--776.
+
+\bibitem{bib4}
+D.~Karimi, H.~Dou, S.~K. Warfield, A.~Gholipour, Deep learning with noisy labels: Exploring techniques and remedies in medical image analysis, Medical image analysis 65 (2020) 101759.
+
+\bibitem{bib5}
+W.~Jiang, Applications of deep learning in stock market prediction: recent progress, Expert Systems with Applications 184 (2021) 115537.
+
+\bibitem{bib7}
+X.~Chu, I.~F. Ilyas, S.~Krishnan, J.~Wang, Data cleaning: Overview and emerging challenges, in: Proceedings of the 2016 international conference on management of data, 2016, pp. 2201--2206.
+
+\bibitem{bib8}
+L.~Berti-Equille, T.~Dasu, D.~Srivastava, Discovery of complex glitch patterns: A novel approach to quantitative data cleaning, in: 2011 IEEE 27th International Conference on Data Engineering, IEEE, 2011, pp. 733--744.
+
+\bibitem{bib9}
+A.~Buades, B.~Coll, J.-M. Morel, Non-local means denoising, Image Processing On Line 1 (2011) 208--212.
+
+\bibitem{bib11}
+M.~Lukasik, S.~Bhojanapalli, A.~Menon, S.~Kumar, Does label smoothing mitigate label noise?, in: International Conference on Machine Learning, PMLR, 2020, pp. 6448--6458.
+
+\bibitem{bib12}
+C.~Liguori, A.~Paolillo, A.~Ruggiero, D.~Russo, Outlier detection for the evaluation of the measurement uncertainty of environmental acoustic noise, IEEE Transactions on Instrumentation and Measurement 65~(2) (2015) 234--242.
+
+\bibitem{bib14}
+J.~W. Osborne, Best practices in data cleaning: A complete guide to everything you need to do before and after collecting your data, Sage publications, 2012.
+
+\bibitem{bib15}
+M.~N.~K. Sikder, F.~A. Batarseh, Outlier detection using ai: a survey, AI Assurance (2023) 231--291.
+
+\bibitem{bib16}
+E.~Peterfreund, M.~Gavish, Multidimensional scaling of noisy high dimensional data, Applied and Computational Harmonic Analysis 51 (2021) 333--373.
+
+\bibitem{bib21}
+H.~Zhang, M.~Cisse, Y.~N. Dauphin, D.~Lopez-Paz, mixup: Beyond empirical risk minimization, arXiv preprint arXiv:1710.09412 (2017).
+
+\bibitem{bib37}
+H.~Alqahtani, M.~Kavakli-Thorne, G.~Kumar, Applications of generative adversarial networks (gans): An updated review, Archives of Computational Methods in Engineering 28 (2021) 525--552.
+
+\bibitem{bib17}
+D.~Nie, R.~Trullo, J.~Lian, L.~Wang, C.~Petitjean, S.~Ruan, Q.~Wang, D.~Shen, Medical image synthesis with deep convolutional adversarial networks, IEEE Transactions on Biomedical Engineering 65~(12) (2018) 2720--2730.
+
+\bibitem{bib18}
+A.~Goncalves, P.~Ray, B.~Soper, J.~Stevens, L.~Coyle, A.~P. Sales, Generation and evaluation of synthetic patient data, BMC medical research methodology 20 (2020) 1--40.
+
+\bibitem{bib19}
+F.~B. Hildebrand, Introduction to numerical analysis, Courier Corporation, 1987.
+
+\bibitem{bib20}
+J.-P. Lewis, Algorithms for solid noise synthesis, in: Proceedings of the 16th annual conference on Computer graphics and interactive techniques, 1989, pp. 263--270.
+
+\bibitem{bib22}
+D.~Walawalkar, Z.~Shen, Z.~Liu, M.~Savvides, Attentive cutmix: An enhanced data augmentation approach for deep learning based image classification, arXiv preprint arXiv:2003.13048 (2020).
+
+\bibitem{bib25}
+A.~Bhosekar, M.~Ierapetritou, Advances in surrogate based modeling, feasibility analysis, and optimization: A review, Computers \& Chemical Engineering 108 (2018) 250--267.
+
+\bibitem{bib26}
+N.~Nasios, A.~G. Bors, Variational learning for gaussian mixture models, IEEE Transactions on Systems, Man, and Cybernetics, Part B (Cybernetics) 36~(4) (2006) 849--862.
+
+\bibitem{bib27}
+N.~Friedman, M.~Goldszmidt, T.~J. Lee, Bayesian network classification with continuous attributes: Getting the best of both discretization and parametric fitting., in: ICML, Vol.~98, Citeseer, 1998, pp. 179--187.
+
+\bibitem{bib28}
+O.~Arandjelovic, R.~Cipolla, Incremental learning of temporally-coherent gaussian mixture models (2005).
+
+\bibitem{bib30}
+G.~M. Raab, B.~Nowok, C.~Dibben, Practical data synthesis for large samples, Journal of Privacy and Confidentiality 7~(3) (2016) 67--97.
+
+\bibitem{bib33}
+N.~V. Chawla, K.~W. Bowyer, L.~O. Hall, W.~P. Kegelmeyer, Smote: synthetic minority over-sampling technique, Journal of artificial intelligence research 16 (2002) 321--357.
+
+\bibitem{bib31}
+H.~Ling, K.~Okada, Diffusion distance for histogram comparison, in: 2006 IEEE Computer Society Conference on Computer Vision and Pattern Recognition (CVPR'06), Vol.~1, IEEE, 2006, pp. 246--253.
+
+\bibitem{bib38}
+A.~Creswell, T.~White, V.~Dumoulin, K.~Arulkumaran, B.~Sengupta, A.~A. Bharath, Generative adversarial networks: An overview, IEEE signal processing magazine 35~(1) (2018) 53--65.
+
+\bibitem{bib39}
+S.~Bond-Taylor, A.~Leach, Y.~Long, C.~G. Willcocks, Deep generative modelling: A comparative review of vaes, gans, normalizing flows, energy-based and autoregressive models, IEEE transactions on pattern analysis and machine intelligence 44~(11) (2021) 7327--7347.
+
+\bibitem{bib41}
+M.~Li, J.~Lin, Y.~Ding, Z.~Liu, J.-Y. Zhu, S.~Han, Gan compression: Efficient architectures for interactive conditional gans, in: Proceedings of the IEEE/CVF conference on computer vision and pattern recognition, 2020, pp. 5284--5294.
+
+\bibitem{bib42}
+P.~Isola, J.-Y. Zhu, T.~Zhou, A.~A. Efros, Image-to-image translation with conditional adversarial networks, in: Proceedings of the IEEE conference on computer vision and pattern recognition, 2017, pp. 1125--1134.
+
+\bibitem{bib43}
+A.~Van Den~Oord, N.~Kalchbrenner, K.~Kavukcuoglu, Pixel recurrent neural networks, in: International conference on machine learning, PMLR, 2016, pp. 1747--1756.
+
+\bibitem{bib44}
+A.~Van~den Oord, N.~Kalchbrenner, L.~Espeholt, O.~Vinyals, A.~Graves, et~al., Conditional image generation with pixelcnn decoders, Advances in neural information processing systems 29 (2016).
+
+\bibitem{bib46}
+T.~Elguebaly, N.~Bouguila, Bayesian learning of finite generalized gaussian mixture models on images, Signal Processing 91~(4) (2011) 801--820.
+
+\bibitem{bib47}
+S.~J. Roberts, D.~Husmeier, I.~Rezek, W.~Penny, Bayesian approaches to gaussian mixture modeling, IEEE Transactions on Pattern Analysis and Machine Intelligence 20~(11) (1998) 1133--1142.
+
+\bibitem{bib49}
+N.~Bouguila, D.~Ziou, A dirichlet process mixture of generalized dirichlet distributions for proportional data modeling, IEEE Transactions on Neural Networks 21~(1) (2009) 107--122.
+
+\bibitem{bib51}
+S.~Hong, D.~Yang, J.~Choi, H.~Lee, Inferring semantic layout for hierarchical text-to-image synthesis, in: Proceedings of the IEEE conference on computer vision and pattern recognition, 2018, pp. 7986--7994.
+
+\bibitem{bib53}
+M.~M. Breunig, H.-P. Kriegel, R.~T. Ng, J.~Sander, Lof: identifying density-based local outliers, in: Proceedings of the 2000 ACM SIGMOD international conference on Management of data, 2000, pp. 93--104.
+
+\bibitem{bib57}
+N.~M. Razali, J.~Geraghty, et~al., Genetic algorithm performance with different selection strategies in solving tsp, in: Proceedings of the world congress on engineering, Vol.~2, International Association of Engineers Hong Kong, China, 2011, pp. 1--6.
+
+\bibitem{bib64}
+{\c{S}}.~G{\"u}lc{\"u}, M.~Mahi, {\"O}.~K. Baykan, H.~Kodaz, A parallel cooperative hybrid method based on ant colony optimization and 3-opt algorithm for solving traveling salesman problem, Soft Computing 22 (2018) 1669--1685.
+
+\bibitem{bib70}
+Q.~Sun, Z.~Ge, A survey on deep learning for data-driven soft sensors, IEEE Transactions on Industrial Informatics 17~(9) (2021) 5853--5866.
+
+\bibitem{bib82}
+Y.~Guo, W.~Wang, X.~Wang, A robust linear regression feature selection method for data sets with unknown noise, IEEE Transactions on Knowledge and Data Engineering 35~(1) (2021) 31--44.
+
+\bibitem{bib83}
+G.~Wu, R.~Mallipeddi, P.~N. Suganthan, R.~Wang, H.~Chen, Differential evolution with multi-population based ensemble of mutation strategies, Information Sciences 329 (2016) 329--345.
+
+\bibitem{bib84}
+W.~Cukierski, \href{https://kaggle.com/competitions/bike-sharing-demand}{Bike sharing demand} (2014).
+\newline\urlprefix\url{https://kaggle.com/competitions/bike-sharing-demand}
+
+\bibitem{bib85}
+S.~Vito, {Air Quality}, UCI Machine Learning Repository, {DOI}: https://doi.org/10.24432/C59K5F (2016).
+
+\bibitem{bib86}
+S.~Moro, P.~Rita, B.~Vala, {Facebook metrics}, UCI Machine Learning Repository, {DOI}: https://doi.org/10.24432/C5QK55 (2016).
+
+\bibitem{bib87}
+P.~Cortez, A.~Morais, {Forest Fires}, UCI Machine Learning Repository, {DOI}: https://doi.org/10.24432/C5D88D (2008).
+
+\bibitem{bib88}
+Y.~LeCun, L.~Bottou, Y.~Bengio, P.~Haffner, Gradient-based learning applied to document recognition, Proceedings of the IEEE 86~(11) (1998) 2278--2324.
+
+\bibitem{bib89}
+H.~Xiao, K.~Rasul, R.~Vollgraf, Fashion-mnist: a novel image dataset for benchmarking machine learning algorithms (2017).
+\newblock \href {http://arxiv.org/abs/cs.LG/1708.07747} {\path{arXiv:cs.LG/1708.07747}}.
+
+\bibitem{bib90}
+A.~Krizhevsky, G.~Hinton, et~al., Learning multiple layers of features from tiny images (2009).
+
+\bibitem{bib91}
+Y.~Netzer, T.~Wang, A.~Coates, et~al., Reading digits in natural images with unsupervised feature learning, in: NIPS workshop on deep learning and unsupervised feature learning, Vol. 2011, Granada, Spain, 2011, p.~7.
+
+\end{thebibliography}
